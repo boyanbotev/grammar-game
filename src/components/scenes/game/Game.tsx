@@ -1,11 +1,14 @@
 import './Game.css';
 import PixiCanvas from '../../pixi-canvas/PixiCanvas';
+import GrammarContent from '../../grammar-content/GrammarContent';
 
 function Game() {
     return (
         <>
             <PixiCanvas />
-            <button>Do something</button>
+            <div id="UIlayer">
+                <GrammarContent />
+            </div>
             {/* how to get UI to float on a separate layer to canvas? */}
         </>
     )
