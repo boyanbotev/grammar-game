@@ -3,10 +3,10 @@ import React from "react";
 type AnswerProps = {
     children: React.ReactNode;
 }
-const Answers = (props: AnswerProps) => {
+const Answers: React.FC<AnswerProps> = ({ children }) => {
     return (
         <div>
-            {props.children}
+            {children}
         </div>
     )
 }
