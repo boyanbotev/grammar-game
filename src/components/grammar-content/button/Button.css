@@ -3,3 +3,9 @@
     box-shadow: 0 5px 20px rgb(156, 255, 126);
     font-weight: 750;
 }
+
+@media screen and (max-height: 600px) {
+    .button {
+        padding: 8px;
+    }
+}

@@ -13,7 +13,7 @@ function PixiCanvas() {
             view: canvas,
             width: screenWidth, // was 653,
             height: screenHeight, // was 280, 
-            backgroundColor: 0x000000,
+            backgroundColor: 0x999999,
         });
 
         // temp

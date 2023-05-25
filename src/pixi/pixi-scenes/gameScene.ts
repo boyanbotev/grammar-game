@@ -15,6 +15,6 @@ export class GameScene extends Container {
         this.addChild(sprite);
         sprite.x = remainingWidth - remainingWidth/2;
 
-        sprite.tint = '0xBBBBBB';
+        sprite.tint = '0x999999';
     }
 }
