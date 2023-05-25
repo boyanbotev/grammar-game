@@ -1,7 +1,11 @@
 .question {
     background-color: white;
     border-radius: 20px;
-    height: 21.3vh;
+    height: 20vh;
 
     margin-top: 60vh;
+
+    box-shadow: 0 5px 30px rgb(182, 255, 126);
+
+    font-weight:500;
 }

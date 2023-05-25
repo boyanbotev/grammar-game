@@ -1,4 +1,5 @@
 .button {
     border-radius: 40px;
-    /* margin: 10px; */
+    box-shadow: 0 5px 20px rgb(156, 255, 126);
+    font-weight: 750;
 }
