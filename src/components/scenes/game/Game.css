@@ -4,7 +4,8 @@
     left: 50%;
     transform: translate(-50%, 0);
 
-    width: calc(100vw - 100vh);
+    /* Portrait phone */
+    width: calc(100vw/1.1);
     height: 100vh;
 
     display: flex;
@@ -12,16 +13,16 @@
     justify-content: center;
 }
 
-@media screen and (min-height: 540px) {
+/* Landscape phone */
+@media screen and (min-width: 540px){
     #UIlayer {
-        width: calc(100vw - 100vh/2);
+        width: calc(100vw - 100vh);
     }
 }
 
-/* very small */
-
-@media screen and (max-width: 540px) {
+/* for iPad */
+@media screen and (min-height: 540px) and (min-width: 540px) {
     #UIlayer {
-        width: calc(100vw/1.1);
+        width: calc(100vw - 100vh/2);
     }
 }
