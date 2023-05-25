@@ -2,10 +2,6 @@
     background-color: white;
     border-radius: 20px;
     height: 21.3vh;
-    /* height: 60vh;*/
-    margin: 5vh;
 
-    margin-top: 50vh;
+    margin-top: 60vh;
 }
-
-/* TODO: make margins based on flexible values */

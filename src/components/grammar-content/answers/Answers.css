@@ -1,6 +1,7 @@
 .answers {
     display: flex;
     justify-content: center;
+    gap: 5vh;
 }
 
 .answers > button {
