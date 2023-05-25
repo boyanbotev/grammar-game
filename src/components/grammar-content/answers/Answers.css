@@ -1,0 +1,8 @@
+.answers {
+    display: flex;
+    justify-content: center;
+}
+
+.answers > button {
+    flex: 0.25 1 0px;
+}

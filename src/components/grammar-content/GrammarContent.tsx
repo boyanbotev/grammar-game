@@ -7,7 +7,7 @@ function GrammarContent() {
     return (
         <div id="grammar">
             <Question>
-                Yesterday, Louise __ to the park.
+                Yesterday, Louise ___ to the park.
             </Question>
             <Answers>
                 <Button>is</Button>

@@ -6,11 +6,13 @@ function PixiCanvas() {
     const canvasRef = useRef(null);
 
     useEffect(() => {
+        const screenWidth = screen.width;
+        const screenHeight = screen.height;
         const canvas = canvasRef.current;
         const app = new Application({
             view: canvas,
-            width: 653,
-            height: 280, 
+            width: screenWidth, // was 653,
+            height: screenHeight, // was 280, 
             backgroundColor: 0x000000,
         });
 
@@ -57,6 +59,7 @@ function PixiCanvas() {
         // When switching between scenes, use the scene management system to unload the current scene,
         // load the necessary assets for the new scene, and inform the PixiCanvas component about the scene change. 
         // The PixiCanvas component can then update its visuals accordingly.
+
     });
 
     return <canvas ref={canvasRef}/>;

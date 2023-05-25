@@ -9,7 +9,6 @@ function Game() {
             <div id="UIlayer">
                 <GrammarContent />
             </div>
-            {/* how to get UI to float on a separate layer to canvas? */}
         </>
     )
 } 

@@ -1,6 +1,11 @@
 .question {
     background-color: white;
-    border-radius: 10px;
-    height: 60vh;
-    margin: 10px;
+    border-radius: 20px;
+    height: 21.3vh;
+    /* height: 60vh;*/
+    margin: 5vh;
+
+    margin-top: 50vh;
 }
+
+/* TODO: make margins based on flexible values */
