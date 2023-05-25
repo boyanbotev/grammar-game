@@ -4,13 +4,14 @@
     left: 50%;
     transform: translate(-50%, 0);
 
-    /* Portrait phone */
-    width: calc(100vw/1.1);
     height: 100vh;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
+  
+    /* Portrait phone */
+    width: calc(100vw/1.1);
 }
 
 /* Landscape phone */
@@ -20,9 +21,16 @@
     }
 }
 
-/* for iPad */
+/* for iPad landscape*/
 @media screen and (min-height: 540px) and (min-width: 540px) {
     #UIlayer {
         width: calc(100vw - 100vh/2);
+    }
+}
+
+/* iPad portrait */
+@media screen and (min-height: 1000px) and (min-width: 540px) {
+    #UIlayer {
+        width: calc(100vw - 100vh/7);
     }
 }
