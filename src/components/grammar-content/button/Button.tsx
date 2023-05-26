@@ -8,7 +8,7 @@ type ButtonProps = {
 const Button: React.FC<ButtonProps> = ({ children }) => {
     return (
         <>
-            <button className="button">
+            <button className="button glow">
                 {children}
             </button>
         </>

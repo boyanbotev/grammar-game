@@ -6,8 +6,11 @@
     width: fit-content;
     padding-left: 4vh;
     padding-right: 4vh;
-
-    box-shadow: 0 5px 30px rgb(182, 255, 126);
+    padding-bottom: 1vh;
 
     font-weight:500;
+}
+
+.glow-less {
+    box-shadow: 0 5px 30px rgb(182, 255, 126);
 }

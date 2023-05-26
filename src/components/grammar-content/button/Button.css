@@ -1,7 +1,10 @@
 .button {
     border-radius: 40px;
-    box-shadow: 0 5px 20px rgb(156, 255, 126);
     font-weight: 750;
+}
+
+.glow {
+    box-shadow: 0 5px 20px rgb(156, 255, 126);
 }
 
 @media screen and (max-height: 600px) {
