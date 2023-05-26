@@ -5,8 +5,10 @@ export class GameScene extends Container {
     constructor() {
         super();
 
-        const screenHeight = screen.height;
-        const screenWidth = screen.width;
+        const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        const screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+        // this should be done in one place
+
         const remainingWidth = screenWidth - screenHeight;
 
         const sprite = Sprite.from(imgUrl);

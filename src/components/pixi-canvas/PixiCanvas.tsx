@@ -6,8 +6,9 @@ function PixiCanvas() {
     const canvasRef = useRef(null);
 
     useEffect(() => {
-        const screenWidth = screen.width;
-        const screenHeight = screen.height;
+        const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+        const screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
         const canvas = canvasRef.current;
         const app = new Application({
             view: canvas as unknown as undefined,
