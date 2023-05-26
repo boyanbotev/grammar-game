@@ -8,7 +8,7 @@ function GrammarContent() {
         <div id="grammar">
             <GrammarItemContainer>
                 <Question>
-                    Yesterday, Louise ___ to the park.
+                    Yesterday, Louise ____ to the park after dinner.
                 </Question>
             </GrammarItemContainer>
             <GrammarItemContainer>

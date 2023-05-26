@@ -1,5 +1,5 @@
 import { Container, Sprite } from "pixi.js";
-import imgUrl from '../../assets/fight bear.jpg';
+import imgUrl from '../../assets/fight-bear.jpg';
 
 export class GameScene extends Container {
     constructor() {

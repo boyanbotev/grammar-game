@@ -1,11 +1,18 @@
 .menu-button {
     position: absolute;
     top: 0;
-    left: 88vw;
-    width: 10vw;
-    height: 13vw;
+
+    --size: 3em;
+    --padding: 0.2;
+    left: calc(100vw - var(--size));
+
+    width: var(--size);
+    height: var(--size);
+
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    align-items: center;
 
+    gap: 0.3em;
 }

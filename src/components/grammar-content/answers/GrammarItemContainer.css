@@ -1,9 +1,16 @@
 .answers {
     display: flex;
     justify-content: center;
-    gap: 5vh;
+    gap: 5vw;
 }
 
 .answers > button {
     flex: 0.25 1 0px;
+}
+
+/* special check for tiny screens */
+@media screen and (max-width: 320px) {
+    .answers {
+        gap: 5vw;
+    }
 }

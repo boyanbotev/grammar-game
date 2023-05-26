@@ -3,6 +3,7 @@
     top: 0;
     left: 50%;
     transform: translate(-50%, 0);
+    /* left 50 and transform translate -50% seem to mess up very thin width screen */
 
     height: 100vh;
 
@@ -10,8 +11,7 @@
     flex-direction: column;
     justify-content: center;
   
-    /* Portrait phone */
-    width: calc(100vw/1.1);
+    /* default Portrait phone */
 }
 
 /* Landscape phone */
@@ -32,5 +32,12 @@
 @media screen and (min-height: 1000px) and (min-width: 540px) {
     #UIlayer {
         width: calc(100vw - 100vh/7);
+    }
+}
+
+/* special check for tiny screens */
+@media screen and (max-width: 320px) {
+    #UIlayer {
+        width: 70vw;
     }
 }

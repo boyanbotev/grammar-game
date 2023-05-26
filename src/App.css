@@ -6,6 +6,7 @@
 
   --glow-green: rgb(156, 255, 126);
   --grey: rgb(153, 153, 153);
+  --light-grey: rgb(200, 200, 200);
 }
 
 @media only screen and (min-height:400px) {

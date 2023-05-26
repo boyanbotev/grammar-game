@@ -10,9 +10,9 @@ function PixiCanvas() {
         const screenHeight = screen.height;
         const canvas = canvasRef.current;
         const app = new Application({
-            view: canvas,
-            width: screenWidth, // was 653,
-            height: screenHeight, // was 280, 
+            view: canvas as unknown as undefined,
+            width: screenWidth,
+            height: screenHeight,
             backgroundColor: 0x999999,
         });
 
