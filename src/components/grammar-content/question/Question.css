@@ -11,6 +11,7 @@
     font-weight:500;
 }
 
+/* should be called glow-more? */
 .glow-less {
-    box-shadow: 0 5px 30px rgb(182, 255, 126);
+    box-shadow: 0 5px 30px var(--glow-green);
 }

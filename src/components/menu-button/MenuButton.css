@@ -1,0 +1,11 @@
+.menu-button {
+    position: absolute;
+    top: 0;
+    left: 88vw;
+    width: 10vw;
+    height: 13vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+}
