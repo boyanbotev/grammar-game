@@ -1,8 +1,14 @@
 import { Application } from 'pixi.js';
 import { useRef, useEffect } from 'react';
 import { GameScene } from '../../pixi/pixi-scenes/gameScene';
+import { CanvasSceneData } from '../../common/types';
 
-function PixiCanvas() {
+// Can you give a React Component an interface?
+
+type CanvasProps = {
+    canvasSceneData: CanvasSceneData,
+}
+const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
     const canvasRef = useRef(null);
 
     useEffect(() => {
@@ -18,8 +24,13 @@ function PixiCanvas() {
             resizeTo: window,
         });
 
-        // temp
+        console.log(app);
+
+        // instead of adding a game scene
+        // we take data about image and hearts
+        // via Canvas interface?
         app.stage.addChild(new GameScene);
+
 
         // sceneManager class
 
@@ -61,6 +72,11 @@ function PixiCanvas() {
         // When switching between scenes, use the scene management system to unload the current scene,
         // load the necessary assets for the new scene, and inform the PixiCanvas component about the scene change. 
         // The PixiCanvas component can then update its visuals accordingly.
+        // return () => app.destroy();
+    }, []);
+
+    useEffect(() => {
+        console.log("update", canvasSceneData);
     });
 
     return <canvas ref={canvasRef}/>;

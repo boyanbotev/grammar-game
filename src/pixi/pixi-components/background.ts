@@ -13,6 +13,7 @@ export class Background extends Sprite {
         window.addEventListener('resize', () => this.resize());
     }
 
+    // TODO?: make base class to reuse resize functionality
     resize(): void {
         const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         const screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
