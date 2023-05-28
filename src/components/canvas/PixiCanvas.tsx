@@ -1,15 +1,14 @@
 import { Application } from 'pixi.js';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { GameScene } from '../../pixi/pixi-scenes/gameScene';
 import { CanvasSceneData } from '../../common/types';
-
-// Can you give a React Component an interface?
 
 type CanvasProps = {
     canvasSceneData: CanvasSceneData,
 }
 const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
     const canvasRef = useRef(null);
+    const [gameScene, setGameScene] = useState<GameScene>();
 
     useEffect(() => {
         const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -29,7 +28,10 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
         // instead of adding a game scene
         // we take data about image and hearts
         // via Canvas interface?
-        app.stage.addChild(new GameScene);
+        const gameScene = new GameScene;
+        app.stage.addChild(gameScene);
+        setGameScene(gameScene);
+        // does game scene need an interface?
 
 
         // sceneManager class
@@ -61,8 +63,6 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
 
         //GPT
 
-        //This component should have a simple interface that allows it to receive data and commands from the scene components.
-
         // State management
         // Use a state management library like Redux or React Context API to manage the shared data and state between the scene components 
         // and the PixiCanvas component. 
@@ -77,6 +77,7 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
 
     useEffect(() => {
         console.log("update", canvasSceneData);
+        gameScene?.changeBackground(canvasSceneData.backGroundImageID);
     });
 
     return <canvas ref={canvasRef}/>;

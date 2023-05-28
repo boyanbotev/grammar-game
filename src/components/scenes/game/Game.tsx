@@ -17,7 +17,7 @@ function Game() {
             setCanvasData({
                 backGroundImageID: (canvasData.backGroundImageID = canvasData.backGroundImageID === 1 ? 0 : 1 ),
             });
-        }, 5000);
+        }, 1000);
     }, []);
 
     return (
