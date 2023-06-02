@@ -1,11 +1,16 @@
 import './Game.css';
-import PixiCanvas from '../../canvas/PixiCanvas';
+import PixiCanvas, { CanvasProps } from '../../canvas/PixiCanvas';
 import GrammarContent from '../../grammar-content/GrammarContent';
 import MenuButton from '../../menu-button/MenuButton';
 import { CanvasSceneData } from '../../../common/types';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-function Game() {
+type GameProps = {
+    canvasComponent: React.FC<CanvasProps>,
+}
+
+
+const Game: React.FC<GameProps> = ({ canvasComponent: CanvasComponent }) => {
     const [canvasData, setCanvasData] = useState<CanvasSceneData>({
         backGroundImageID: 1,
     })
@@ -22,7 +27,7 @@ function Game() {
 
     return (
         <>
-            <PixiCanvas canvasSceneData={canvasData}/>
+            <CanvasComponent canvasSceneData={canvasData} />
             <div id="UIlayer">
                 <GrammarContent />
             </div>

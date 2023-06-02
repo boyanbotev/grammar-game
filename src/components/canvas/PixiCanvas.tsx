@@ -3,37 +3,35 @@ import { useRef, useEffect, useState } from 'react';
 import { GameScene } from '../../pixi/pixi-scenes/gameScene';
 import { CanvasSceneData } from '../../common/types';
 
-type CanvasProps = {
+export type CanvasProps = {
     canvasSceneData: CanvasSceneData,
 }
+
 const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
-    const canvasRef = useRef(null);
+    const canvasRef = useRef<HTMLCanvasElement>(null);
     const [gameScene, setGameScene] = useState<GameScene>();
 
     useEffect(() => {
         const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
         const screenHeight = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
 
-        const canvas = canvasRef.current;
+        if (!canvasRef.current) {
+            console.log("NO CANVAS");
+            return;
+        }
+
         const app = new Application({
-            view: canvas as unknown as undefined,
+            view: canvasRef.current,
             width: screenWidth,
             height: screenHeight,
             backgroundColor: 0x999999,
             resizeTo: window,
         });
 
-        console.log(app);
-
-        // instead of adding a game scene
-        // we take data about image and hearts
-        // via Canvas interface?
         const gameScene = new GameScene;
         app.stage.addChild(gameScene);
         setGameScene(gameScene);
-        // does game scene need an interface?
-
-
+        
         // sceneManager class
 
         // resizeManager class
@@ -76,7 +74,6 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
     }, []);
 
     useEffect(() => {
-        console.log("update", canvasSceneData);
         gameScene?.changeBackground(canvasSceneData.backGroundImageID);
     });
 
