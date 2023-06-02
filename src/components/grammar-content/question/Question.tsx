@@ -5,6 +5,7 @@ type QuestionProps ={
     children?: React.ReactNode,
 }
 
+// rename?
 const Question: React.FC<QuestionProps> = ({ children }) => {
     return (
         <div className="question glow-less" data-testid="question">
@@ -14,7 +15,5 @@ const Question: React.FC<QuestionProps> = ({ children }) => {
         </div>
     )
 }
-
-// rename?
 
 export default Question;

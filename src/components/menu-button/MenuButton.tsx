@@ -4,7 +4,7 @@ import './MenuButton.css';
 
 const MenuButton: React.FC = () => {
     return (
-        <div className="menu-button">
+        <div className="menu-button" data-testid="menu-button">
             <MenuButtonBar/>
             <MenuButtonBar/>
             <MenuButtonBar/>
