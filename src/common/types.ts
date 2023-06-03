@@ -16,3 +16,13 @@ export type CanvasSceneData = {
         colour: number;
     };
 };
+
+export type Question = {
+    question: string;
+    answers: Answer[];
+}
+
+export type Answer = {
+    content: string;
+    correct: boolean;
+}

@@ -22,5 +22,3 @@ describe("GrammarContent", () => {
         expect(questionText).not.toBe(questionText2);
       });
 });
-
-
