@@ -11,7 +11,11 @@ import Answers from './answers/Answers';
 const GrammarContent: React.FC = () => {
     const [questionIndex, setQuestionIndex] = useState(0);
 
-    const incrementQuestionIndex = () => setQuestionIndex((prevIndex) => prevIndex + 1);
+    const incrementQuestionIndex = () => {
+        if (questionIndex >= questions.length -1) return;
+
+        setQuestionIndex((prevIndex) => prevIndex + 1)
+    };
 
     return (
         <div id="grammar">
