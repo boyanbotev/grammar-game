@@ -14,15 +14,15 @@ const Game: React.FC<GameProps> = ({ canvasComponent: CanvasComponent }) => {
         backGroundImageID: 1,
     })
 
-    useEffect(() => {
-        // test that PixiCanavas updates without restarting pixi app
-        setInterval(() => {
-            // toggle image
-            setCanvasData({
-                backGroundImageID: (canvasData.backGroundImageID = canvasData.backGroundImageID === 1 ? 0 : 1 ),
-            });
-        }, 1000);
-    }, []);
+    // useEffect(() => {
+    //     // test that PixiCanavas updates without restarting pixi app
+    //     setInterval(() => {
+    //         // toggle image
+    //         setCanvasData({
+    //             backGroundImageID: (canvasData.backGroundImageID = canvasData.backGroundImageID === 1 ? 0 : 1 ),
+    //         });
+    //     }, 1000);
+    // }, []);
 
     return (
         <>

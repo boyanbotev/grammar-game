@@ -74,7 +74,7 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
     }, []);
 
     useEffect(() => {
-        gameScene?.changeBackground(canvasSceneData.backGroundImageID);
+        // gameScene?.changeBackground(canvasSceneData.backGroundImageID);
     });
 
     return <canvas ref={canvasRef}/>;
