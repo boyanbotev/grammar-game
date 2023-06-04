@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import './GrammarContent.css';
 import Question from './question/Question';
-import GrammarItemContainer from './answers/GrammarItemContainer';
+import GrammarItemContainer from './grammar-item-container/GrammarItemContainer';
 import { questions } from '../../common/consts';
 import Answers from './answers/Answers';
 
@@ -17,6 +17,11 @@ const GrammarContent: React.FC = () => {
         setQuestionIndex((prevIndex) => prevIndex + 1)
     };
 
+    const goToNextQuestion = () => {
+        const milis = 650;
+        setTimeout(() => incrementQuestionIndex(), milis);
+    };
+
     return (
         <div id="grammar">
             <GrammarItemContainer>
@@ -27,12 +32,12 @@ const GrammarContent: React.FC = () => {
             <GrammarItemContainer>
                 <Answers 
                     answers={questions[questionIndex].answers}
-                    goToNextQuestion={incrementQuestionIndex}
+                    goToNextQuestion={goToNextQuestion}
                 />
             </GrammarItemContainer>
         </div>
     )
 } // MobX stores question number
-// Buttons uppated dynamically: a component can hold them
+// Buttons updated dynamically: a component can hold them
 
 export default GrammarContent;

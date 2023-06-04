@@ -4,9 +4,6 @@ import { getByRole, render, screen, fireEvent } from '@testing-library/react';
 import GrammarContent from "../components/grammar-content/GrammarContent";
 
 describe("GrammarContent", () => {
-    it("renders without crashing", () => {
-        render(<GrammarContent />);
-    });
 
     it('renders new question when answer button pressed', () => {
         render(<GrammarContent />);
@@ -18,5 +15,5 @@ describe("GrammarContent", () => {
         const newQuestionText = screen.getByTestId('question').textContent;
     
         expect(questionText).not.toEqual(newQuestionText);
-      });
+    });
 });

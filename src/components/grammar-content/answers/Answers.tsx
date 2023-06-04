@@ -1,22 +1,16 @@
 import { Answer } from "../../../common/types";
-import Button from "../button/Button";
+import AnswerButton from "./answer-button/AnswerButton";
 
 type AnswerProps = {
     answers: Answer[];
-    goToNextQuestion: React.Dispatch<React.SetStateAction<number>>;
+    goToNextQuestion: () => void;
 }
 
-// TODO: Button reacts with animation to correct or incorrect answer click
-
 const Answers: React.FC<AnswerProps> = ({ answers, goToNextQuestion }) => {
-    const answerButtons = answers.map((answer) => {
-        return <Button onClick={answer.correct ? goToNextQuestion : undefined}>
-            {answer.content}
-        </Button>
-    });
-
     return (
-        <>{answerButtons}</>
+        <>
+            {answers.map(answer => <AnswerButton answer={answer} goToNextQuestion={goToNextQuestion}/>)}
+        </>
     )
 }
 

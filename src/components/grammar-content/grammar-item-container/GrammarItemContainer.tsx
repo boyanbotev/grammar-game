@@ -6,7 +6,7 @@ type GrammarItemProps = {
 }
 const GrammarItemContainer: React.FC<GrammarItemProps> = ({ children }) => {
     return (
-        <div className="answers">
+        <div className="grammar-item-container">
             {children}
         </div>
     )

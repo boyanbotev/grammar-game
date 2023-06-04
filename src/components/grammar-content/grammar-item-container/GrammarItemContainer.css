@@ -1,16 +1,16 @@
-.answers {
+.grammar-item-container {
     display: flex;
     justify-content: center;
     gap: 5vw;
 }
 
-.answers > button {
+.grammar-item-container > button {
     flex: 0.25 1 0px;
 }
 
 /* special check for tiny screens */
 @media screen and (max-width: 320px) {
-    .answers {
+    .grammar-item-container {
         gap: 5vw;
     }
 }

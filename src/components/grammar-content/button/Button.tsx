@@ -3,13 +3,14 @@ import './Button.css';
 
 type ButtonProps = {
     children: React.ReactNode,
-    onClick?: (args?: any) => any // avoid any?
+    onClick?: (args?: any) => any // avoid any?,
+    className?: string,
 }
 
-const Button: React.FC<ButtonProps> = ({ children, onClick }) => {
+const Button: React.FC<ButtonProps> = ({ children, onClick, className }) => {
     return (
         <>
-            <button onClick={onClick} className="button glow">
+            <button onClick={onClick} className={`button glow ${className}`} >
                 {children}
             </button>
         </>
