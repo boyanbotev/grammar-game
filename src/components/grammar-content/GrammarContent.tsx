@@ -1,20 +1,20 @@
-import { useState } from 'react';
+import { observer } from'mobx-react-lite';
 
 import './GrammarContent.css';
 import Question from './question/Question';
 import GrammarItemContainer from './grammar-item-container/GrammarItemContainer';
 import { questions } from '../../common/consts';
 import Answers from './answers/Answers';
+import { useGame } from '../../useGame';
 
-// TODO: Grammar content come from MobX store
-
-const GrammarContent: React.FC = () => {
-    const [questionIndex, setQuestionIndex] = useState(0);
+const GrammarContent: React.FC = observer(() => {
+    const { game } = useGame();
+    const questionIndex = game.getQuestionIndex();
 
     const incrementQuestionIndex = () => {
         if (questionIndex >= questions.length -1) return;
 
-        setQuestionIndex((prevIndex) => prevIndex + 1)
+        game.setQuestionIndex(questionIndex + 1);
     };
 
     const goToNextQuestion = () => {
@@ -37,7 +37,6 @@ const GrammarContent: React.FC = () => {
             </GrammarItemContainer>
         </div>
     )
-} // MobX stores question number
-// Buttons updated dynamically: a component can hold them
+});
 
 export default GrammarContent;

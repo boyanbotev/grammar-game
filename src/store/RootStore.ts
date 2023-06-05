@@ -1,17 +1,9 @@
-import { makeAutoObservable } from "mobx";
+import { GameStore } from "./GameStore";
 
 export class RootStore {
-    private questionIndex: number = 0;
-    
+    game: GameStore;
+
     constructor() {
-        makeAutoObservable(this, {}, { autoBind: true });
-    }
-
-    public setQuestionIndex(index: number): void {
-        this.questionIndex = index;
-    }
-
-    public getQuestionIndex(): number {
-        return this.questionIndex;
+        this.game = new GameStore();
     }
 }
