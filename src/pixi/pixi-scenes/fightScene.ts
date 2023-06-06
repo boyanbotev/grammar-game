@@ -1,11 +1,12 @@
 import { Container } from "pixi.js";
+
 import imgUrl from '../../assets/fight-bear.jpg';
 import { Background } from "../pixi-components/background";
 import { Scene } from "./Scene";
 import { HeartContainer } from "../pixi-components/heartContainer";
 import { Vector2 } from "../../common/Vector2";
 
-export class GameScene extends Container implements Scene {
+export class FightScene extends Container implements Scene {
     private background: Background;
     private screenHeight: number
     private screenWidth: number

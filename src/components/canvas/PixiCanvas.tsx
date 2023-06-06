@@ -1,6 +1,6 @@
 import { Application } from 'pixi.js';
 import { useRef, useEffect, useState } from 'react';
-import { GameScene } from '../../pixi/pixi-scenes/gameScene';
+import { FightScene } from '../../pixi/pixi-scenes/fightScene';
 import { CanvasSceneData, SceneType } from '../../common/types';
 
 export type CanvasProps = {
@@ -9,7 +9,7 @@ export type CanvasProps = {
 
 const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [gameScene, setGameScene] = useState<GameScene>();
+    const [gameScene, setGameScene] = useState<FightScene>();
 
     useEffect(() => {
         const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -30,7 +30,7 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
 
         switch (canvasSceneData.sceneType) {
             case SceneType.fight:
-                const scene = new GameScene(screenWidth, screenHeight);
+                const scene = new FightScene(screenWidth, screenHeight);
                 app.stage.addChild(scene);
                 setGameScene(scene);
                 break;          
