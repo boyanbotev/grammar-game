@@ -2,7 +2,7 @@ import './Game.css';
 import { CanvasProps } from '../../canvas/PixiCanvas';
 import GrammarContent from '../../grammar-content/GrammarContent';
 import MenuButton from '../../menu-button/MenuButton';
-import { CanvasSceneData } from '../../../common/types';
+import { CanvasSceneData, SceneType } from '../../../common/types';
 import React, { useState, useEffect } from 'react';
 
 type GameProps = {
@@ -11,18 +11,9 @@ type GameProps = {
 
 const Game: React.FC<GameProps> = ({ canvasComponent: CanvasComponent }) => {
     const [canvasData, setCanvasData] = useState<CanvasSceneData>({
+        sceneType: SceneType.fight,
         backGroundImageID: 1,
-    })
-
-    // useEffect(() => {
-    //     // test that PixiCanavas updates without restarting pixi app
-    //     setInterval(() => {
-    //         // toggle image
-    //         setCanvasData({
-    //             backGroundImageID: (canvasData.backGroundImageID = canvasData.backGroundImageID === 1 ? 0 : 1 ),
-    //         });
-    //     }, 1000);
-    // }, []);
+    });
 
     return (
         <>

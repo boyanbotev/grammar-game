@@ -1,7 +1,7 @@
 import { Application } from 'pixi.js';
 import { useRef, useEffect, useState } from 'react';
 import { GameScene } from '../../pixi/pixi-scenes/gameScene';
-import { CanvasSceneData } from '../../common/types';
+import { CanvasSceneData, SceneType } from '../../common/types';
 
 export type CanvasProps = {
     canvasSceneData: CanvasSceneData,
@@ -28,37 +28,15 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
             resizeTo: window,
         });
 
-        const gameScene = new GameScene;
-        app.stage.addChild(gameScene);
-        setGameScene(gameScene);
+        switch (canvasSceneData.sceneType) {
+            case SceneType.fight:
+                const scene = new GameScene(screenWidth, screenHeight);
+                app.stage.addChild(scene);
+                setGameScene(scene);
+                break;          
+        }
         
-        // sceneManager class
-
-        // resizeManager class
-
-        // decouple from PIXI implementation
-
-        // store all scenes in data structure, 
-        // which contains other data structures such as storyScenes, teachingScenes and gameScenes
-        // and somehow is in sync with react.
-        // When a scene changes, we want the React UI to change
-
-
-        // How to sync React state and PIXI state?
-        // Have a PIXISceneManager class that implements Manager interface?
-        // Have a class that populates React components with the right content
-        // on Scene Change?
-
-        // How to communicate between React and PIXI?
-        // have public methods / observer pattern?
-
-
-        // Think of it this way...
-        // User actions are all on react
-        // So React Drives Pixi
-        // That means, the pixiSceneManager responds to React class
-
-
+        
         //GPT
 
         // State management

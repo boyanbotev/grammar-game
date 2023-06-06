@@ -1,10 +1,20 @@
 import { Vector2 } from './Vector2';
 
-type SceneType = "home" | "settings" |  "story" | "learning" | "fight" | "challenge";
+//type SceneType = "home" | "settings" |  "story" | "learning" | "fight" | "challenge";
 // can be toggled in MobX state?
 // each connects to a React component
 
+export enum SceneType {
+    "home" = "home",
+    "settings" = "settings",
+    "story" = "story",
+    "learning" = "learning",
+    "fight" = "fight",
+    "challenge" = "challenge"
+}
+
 export type CanvasSceneData = {
+    sceneType: SceneType;
     backGroundImageID: number;
     playerHearts?: {
         number: number;
