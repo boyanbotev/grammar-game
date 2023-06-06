@@ -48,11 +48,14 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
         // When switching between scenes, use the scene management system to unload the current scene,
         // load the necessary assets for the new scene, and inform the PixiCanvas component about the scene change. 
         // The PixiCanvas component can then update its visuals accordingly.
-        // return () => app.destroy();
     }, []);
 
     useEffect(() => {
-        // gameScene?.changeBackground(canvasSceneData.backGroundImageID);
+        console.log(canvasSceneData);
+        if (gameScene && canvasSceneData.playerHearts?.number){
+            gameScene.updateplayerHealth(canvasSceneData.playerHearts.number);
+        }
+        
     });
 
     return <canvas ref={canvasRef}/>;

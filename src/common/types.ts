@@ -18,12 +18,12 @@ export type CanvasSceneData = {
     backGroundImageID: number;
     playerHearts?: {
         number: number;
-        position: Vector2;
+        position?: Vector2;
     };
     opponentHearts?: {
         number: number;
-        position: Vector2;
-        colour: number;
+        position?: Vector2;
+        colour?: number;
     };
 };
 

@@ -10,6 +10,8 @@ export class FightScene extends Container implements Scene {
     private background: Background;
     private screenHeight: number
     private screenWidth: number
+    private playerHeartContainer: HeartContainer;
+    private enemyHeartContainer: HeartContainer;
 
     constructor(
         screenHeight: number,
@@ -22,14 +24,18 @@ export class FightScene extends Container implements Scene {
         this.background = new Background(imgUrl, this);
 
         const heartSize = window.innerWidth/10;
-        const enemyHeartContainer = new HeartContainer(new Vector2(window.innerWidth/2,0), heartSize, 9, this);
-        const boyHeartContainer = new HeartContainer(new Vector2(window.innerWidth/1.25,window.innerHeight/2.5), heartSize, 4, this);
+        this.enemyHeartContainer = new HeartContainer(new Vector2(window.innerWidth/2,0), heartSize, 9, this);
+        this.playerHeartContainer = new HeartContainer(new Vector2(window.innerWidth/1.25,window.innerHeight/2.5), heartSize, 4, this);
 
-        setInterval(() => enemyHeartContainer.removeHeart(), 1000);
+        //setInterval(() => enemyHeartContainer.removeHeart(), 1000);
     }
 
     public changeBackground(backgroundID: number): void {
         this.background.tint = backgroundID * 0xFFFFFF;
         // should be done in background?
     }
+
+    public updateplayerHealth(health: number): void {
+        this.playerHeartContainer.removeHeart();
+    };
 }
