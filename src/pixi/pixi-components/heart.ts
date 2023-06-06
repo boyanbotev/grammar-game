@@ -7,8 +7,6 @@ export class Heart extends Sprite {
         position: Vector2,
         size: number,
     ){
-        console.log("heart");
-
         super();
 
         this.width = size;
@@ -16,6 +14,7 @@ export class Heart extends Sprite {
 
         this.x = position.x
         this.y = position.y
+        
         this.texture = Texture.from(imgUrl);
     }
 

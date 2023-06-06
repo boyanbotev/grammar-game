@@ -62,8 +62,4 @@ export class HeartContainer extends Container {
     public removeHeart() {
         this.update(this.heartCount - 1);
     }
-
-    public get HeartCount() {
-        return this.heartCount;
-    }
 }
