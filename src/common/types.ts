@@ -13,31 +13,38 @@ export enum SceneType {
     "challenge" = "challenge"
 }
 
-export type CanvasSceneData = {
-    sceneType: SceneType;
-    backGroundImageID: number;
-    playerHearts?: {
-        number: number;
-        position?: Vector2;
-    };
-    opponentHearts?: {
-        number: number;
-        position?: Vector2;
-        colour?: number;
-    };
-};
+// export type CanvasSceneData = {
+//     sceneType: SceneType;
+//     backGroundImageID: number;
+//     playerHearts?: {
+//         number: number;
+//         position?: Vector2;
+//     };
+//     opponentHearts?: {
+//         number: number;
+//         position?: Vector2;
+//         colour?: number;
+//     };
+// };
+
+export type CanvasSceneData = FightSceneCanvasData | StorySceneCanvasData;
 
 export type FightSceneCanvasData = {
+    sceneType: SceneType.fight;
     backGroundImageID: number;
-    playerHearts?: {
+    playerHearts: {
         number: number;
         position?: Vector2;
     };
-    opponentHearts?: {
+    opponentHearts: {
         number: number;
         position?: Vector2;
+    };
+}
 
-    };
+export type StorySceneCanvasData = {
+    sceneType: SceneType.story;
+    backGroundImageID: number;
 }
 
 export type Question = {

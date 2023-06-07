@@ -19,8 +19,4 @@ export class Heart extends Sprite {
 
         this.texture = Texture.from(imgUrl);
     }
-
-    public setVisible(visible: boolean) {
-        this.visible = visible;
-    }
 }

@@ -15,4 +15,27 @@ describe("GameStore", () => {
 
         expect(gameStore.getQuestionIndex()).toBe(1);
     });
+
+    it ("deincrements playerHearts", () => {
+        const gameStore = new GameStore();
+
+        gameStore.setPlayerHearts(3);
+
+        gameStore.deincrementPlayerHearts();
+
+        expect(gameStore.getPlayerHearts()).toBe(2);
+    });
+
+    it ("decrements enemyHearts", () => {
+        const gameStore = new GameStore();
+        gameStore.setEnemyHearts(3);
+        gameStore.deincrementEnemyHearts();
+        expect(gameStore.getEnemyHearts()).toBe(2);
+    });
+
+    it ("does not deincrement hearts below 0", () => {
+        const gameStore = new GameStore();
+        gameStore.setPlayerHearts(-1);
+        expect(() => gameStore.deincrementPlayerHearts()).toThrowError();
+    })
 });

@@ -12,6 +12,7 @@ type GameProps = {
     canvasComponent: React.FC<CanvasProps>,
 }
 
+// TODO: make flexible to other scene types  / rename ?
 const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }) => {
     const { game } = useGame();
     const playerHearts  = game.getPlayerHearts();

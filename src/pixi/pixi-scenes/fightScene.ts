@@ -5,7 +5,7 @@ import { Background } from "../pixi-components/background";
 import { Scene } from "./Scene";
 import { HeartContainer } from "../pixi-components/heartContainer";
 import { Vector2 } from "../../common/Vector2";
-import { CanvasSceneData } from "../../common/types";
+import { CanvasSceneData, SceneType } from "../../common/types";
 
 export class FightScene extends Container implements Scene {
     private background: Background;
@@ -30,15 +30,10 @@ export class FightScene extends Container implements Scene {
 
     }
 
-    // TODO: different types of canvas scene data so heart numbers are defined awlays
     update(canvasSceneData: CanvasSceneData): void {
-        // TODO: reflect new values by sending messages to heartContainer
-        if (canvasSceneData.playerHearts?.number !==undefined) {
-            this.playerHeartContainer.update(canvasSceneData.playerHearts.number)
-        }
-            
-        if (canvasSceneData.opponentHearts?.number !==undefined) {
-            this.enemyHeartContainer.update(canvasSceneData.opponentHearts.number);
-        }
+        if (canvasSceneData.sceneType !== SceneType.fight) 
+            return;
+        this.playerHeartContainer.update(canvasSceneData.playerHearts.number)
+        this.enemyHeartContainer.update(canvasSceneData.opponentHearts.number);
     }
 }

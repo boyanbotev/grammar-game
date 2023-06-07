@@ -11,15 +11,24 @@ const GrammarContent: React.FC = observer(() => {
     const { game } = useGame();
     const questionIndex = game.getQuestionIndex();
 
-    const incrementQuestionIndex = () => {
-        if (questionIndex >= questions.length -1) return;
+    const handleCorrectAnswer = () => {
+        goToNextQuestion();
+        game.deincrementEnemyHearts();
+    }
 
-        game.setQuestionIndex(questionIndex + 1);
-    };
+    const handleIncorrectAnswer = () => {
+        game.deincrementPlayerHearts();
+    }
 
     const goToNextQuestion = () => {
         const milis = 650;
         setTimeout(() => incrementQuestionIndex(), milis);
+    };
+    
+    const incrementQuestionIndex = () => {
+        if (questionIndex >= questions.length -1) return;
+
+        game.setQuestionIndex(questionIndex + 1);
     };
 
     return (
@@ -32,7 +41,8 @@ const GrammarContent: React.FC = observer(() => {
             <GrammarItemContainer>
                 <Answers 
                     answers={questions[questionIndex].answers}
-                    goToNextQuestion={goToNextQuestion}
+                    handleCorrectAnswer={handleCorrectAnswer}
+                    handleIncorrectAnswer={handleIncorrectAnswer}
                 />
             </GrammarItemContainer>
         </div>

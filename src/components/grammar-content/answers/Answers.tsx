@@ -3,13 +3,24 @@ import AnswerButton from "./answer-button/AnswerButton";
 
 type AnswerProps = {
     answers: Answer[];
-    goToNextQuestion: () => void;
+    handleCorrectAnswer: () => void;
+    handleIncorrectAnswer: () => void;
 }
 
-const Answers: React.FC<AnswerProps> = ({ answers, goToNextQuestion }) => {
+const Answers: React.FC<AnswerProps> = ({ answers, handleCorrectAnswer, handleIncorrectAnswer }) => {
     return (
         <>
-            {answers.map(answer => <AnswerButton answer={answer} goToNextQuestion={goToNextQuestion}/>)}
+            {
+                answers.map(answer => {
+                    return (
+                        <AnswerButton
+                            answer={answer}
+                            handleCorrectAnswer={handleCorrectAnswer} 
+                            handleIncorrectAnswer={handleIncorrectAnswer}
+                        />
+                    )
+                })
+            }
         </>
     )
 }

@@ -22,10 +22,12 @@ export class GameStore {
     }
 
     public deincrementPlayerHearts() {
+        if (this.playerHearts <= 0) throw new Error("Hearts must be positive integer");
         this.playerHearts--;
     }
     
     public deincrementEnemyHearts() {
+        if (this.enemyHearts <= 0) throw new Error("Hearts must be positive integer");
         this.enemyHearts--;
     }
 

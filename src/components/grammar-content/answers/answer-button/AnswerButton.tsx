@@ -3,34 +3,28 @@ import { useState } from "react";
 import Button from "../../button/Button";
 import { Answer } from "../../../../common/types";
 import './AnswerButton.css';
-import { useGame } from "../../../../useGame";
 
 type AnswerProps = {
     answer: Answer;
-    goToNextQuestion: () => void;
+    handleCorrectAnswer: () => void;
+    handleIncorrectAnswer: () => void;
 }
-// TODO: remove unnecessary prop drilling
 
-const AnswerButton: React.FC<AnswerProps> = ({ answer, goToNextQuestion }) => {
+const AnswerButton: React.FC<AnswerProps> = ({ answer, handleCorrectAnswer, handleIncorrectAnswer }) => {
     const [ animation, setAnimation ] = useState<string>("");
-    const { game } = useGame();
     
     const handleButtonPressed = () => {
         if (animation != "") return;
 
         if (answer.correct) {
             triggerCorrectAnimation();
-            goToNextQuestion();
-            game.deincrementEnemyHearts();
-
+            handleCorrectAnswer();
         } else {
             triggerIncorrectAnimation();
-            
-            // TODO: IS this the place for this?
-            game.deincrementPlayerHearts();
+            handleIncorrectAnswer();
         }
 
-        resetAnimation(650);
+        resetAnimationAfterMillis(650);
     }
 
     const triggerCorrectAnimation = () => {
@@ -41,7 +35,7 @@ const AnswerButton: React.FC<AnswerProps> = ({ answer, goToNextQuestion }) => {
         setAnimation("incorrect-animation");
     };
 
-    const resetAnimation = (milis: number) => {
+    const resetAnimationAfterMillis = (milis: number) => {
         setTimeout(() => setAnimation(""), milis);
     }
 
