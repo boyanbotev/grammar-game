@@ -5,13 +5,12 @@ import { Heart } from "./heart";
 
 export class HeartContainer extends Container {
     private hearts: Heart[] = [];
-    private heartCount: number;
+    private heartCount: number = 0;
     private heartSize: number;
 
     constructor(
         position: Vector2,
         heartSize: number,
-        initialHeartCount: number,
         parent: Container,
     ) {
         super();
@@ -20,9 +19,23 @@ export class HeartContainer extends Container {
         parent.addChild(this);
 
         this.heartSize = heartSize;
-        this.heartCount = initialHeartCount;
+    }
 
-        this.createHearts();
+    calculateHeartPosition(i: number) {
+        const centerXAdjustment = this.heartCount * this.heartSize/2;
+        const xOffset = this.heartSize * i - centerXAdjustment;
+        return new Vector2(xOffset, 0);
+    }
+
+    public update(heartCount: number) {
+        if (heartCount === this.heartCount) return;
+        else if (heartCount < this.heartCount) {
+            this.removeHearts(heartCount);
+        } else {
+            this.heartCount = heartCount;
+            this.clearHearts();
+            this.createHearts();
+        }
     }
 
     createHearts(): void {
@@ -34,13 +47,14 @@ export class HeartContainer extends Container {
         }
     }
 
-    calculateHeartPosition(i: number) {
-        const centerXAdjustment = this.heartCount * this.heartSize/2;
-        const xOffset = this.heartSize * i - centerXAdjustment;
-        return new Vector2(xOffset, 0);
+    clearHearts() {
+        for (let i = 0; i < this.hearts.length; i++) {
+            this.hearts[i].destroy();
+        }
+        this.hearts = [];
     }
 
-    public update(heartCount: number) {
+    public removeHearts(heartCount: number) {
         this.heartCount = heartCount;
         for (let i = this.heartCount; i >= 0; i--) {
             const heart = this.hearts[i];
@@ -58,9 +72,5 @@ export class HeartContainer extends Container {
         const heartPosition = this.calculateHeartPosition(index);
         heart.x = heartPosition.x;
         heart.y = heartPosition.y;
-    }
-
-    public removeHeart() {
-        this.update(this.heartCount - 1);
     }
 }

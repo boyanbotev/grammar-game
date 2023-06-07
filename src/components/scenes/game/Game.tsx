@@ -29,6 +29,11 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
     });
 
     useEffect(() => {
+        game.setPlayerHearts(4);
+        game.setEnemyHearts(9);
+    }, []);
+
+    useEffect(() => {
             setCanvasData((prevCanvasData) => ({
                 ...prevCanvasData,
                 playerHearts: { number: playerHearts },

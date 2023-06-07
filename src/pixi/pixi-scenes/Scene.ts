@@ -1,3 +1,5 @@
+import { CanvasSceneData } from "../../common/types";
+
 export interface Scene {
-    changeBackground(backgroundID: number): void;
+    update(canvasSceneData: CanvasSceneData): void;
 }

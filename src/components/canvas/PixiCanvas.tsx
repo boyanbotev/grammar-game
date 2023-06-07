@@ -1,7 +1,8 @@
 import { Application } from 'pixi.js';
 import { useRef, useEffect, useState } from 'react';
 import { FightScene } from '../../pixi/pixi-scenes/fightScene';
-import { CanvasSceneData, SceneType } from '../../common/types';
+import { CanvasSceneData, SceneType, } from '../../common/types';
+import { Scene } from '../../pixi/pixi-scenes/Scene';
 
 export type CanvasProps = {
     canvasSceneData: CanvasSceneData,
@@ -9,7 +10,7 @@ export type CanvasProps = {
 
 const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [gameScene, setGameScene] = useState<FightScene>();
+    const [scene, setScene] = useState<Scene>();
 
     useEffect(() => {
         const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -28,13 +29,15 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
             resizeTo: window,
         });
 
+        if (canvasSceneData)
         switch (canvasSceneData.sceneType) {
             case SceneType.fight:
                 const scene = new FightScene(screenWidth, screenHeight);
                 app.stage.addChild(scene);
-                setGameScene(scene);
+                setScene(scene);
                 break;          
         }
+        
         
         
         //GPT
@@ -52,11 +55,10 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
 
     useEffect(() => {
         console.log(canvasSceneData);
-        if (gameScene && canvasSceneData.playerHearts?.number){
-            gameScene.updateplayerHealth(canvasSceneData.playerHearts.number);
+        if (scene){
+            scene.update(canvasSceneData);
         }
-        
-    });
+    }, [canvasSceneData]);
 
     return <canvas ref={canvasRef}/>;
 }

@@ -22,12 +22,10 @@ export class GameStore {
     }
 
     public deincrementPlayerHearts() {
-        console.log("deincrementPlayerHearts");
         this.playerHearts--;
     }
     
     public deincrementEnemyHearts() {
-        console.log("deincrementEnemyHearts");
         this.enemyHearts--;
     }
 

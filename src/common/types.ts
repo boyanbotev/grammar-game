@@ -27,6 +27,19 @@ export type CanvasSceneData = {
     };
 };
 
+export type FightSceneCanvasData = {
+    backGroundImageID: number;
+    playerHearts?: {
+        number: number;
+        position?: Vector2;
+    };
+    opponentHearts?: {
+        number: number;
+        position?: Vector2;
+
+    };
+}
+
 export type Question = {
     question: string;
     answers: Answer[];
