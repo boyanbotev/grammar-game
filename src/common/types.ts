@@ -42,6 +42,11 @@ export type FightSceneCanvasData = {
     };
 }
 
+export type HeartData = {
+    number: number;
+    position?: Vector2;
+}
+
 export type StorySceneCanvasData = {
     sceneType: SceneType.story;
     backGroundImageID: number;

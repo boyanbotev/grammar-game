@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { getByRole, render, screen, fireEvent, act } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 
 import GrammarContent from "../components/grammar-content/GrammarContent";
 import { config } from "../common/config";

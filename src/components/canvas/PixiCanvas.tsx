@@ -32,7 +32,7 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
         if (canvasSceneData)
         switch (canvasSceneData.sceneType) {
             case SceneType.fight:
-                const scene = new FightScene(screenWidth, screenHeight);
+                const scene = new FightScene();
                 app.stage.addChild(scene);
                 setScene(scene);
                 break;          

@@ -2,6 +2,7 @@ import { Container } from "pixi.js";
 
 import { Vector2 } from "../../common/Vector2";
 import { Heart } from "./heart";
+import { HeartData } from "../../common/types";
 
 export class HeartContainer extends Container {
     private hearts: Heart[] = [];
@@ -9,15 +10,11 @@ export class HeartContainer extends Container {
     private heartSize: number;
 
     constructor(
-        position: Vector2,
         heartSize: number,
         parent: Container,
     ) {
         super();
-        this.x = position.x;
-        this.y = position.y;
         parent.addChild(this);
-
         this.heartSize = heartSize;
     }
 
@@ -26,8 +23,20 @@ export class HeartContainer extends Container {
         const xOffset = this.heartSize * i - centerXAdjustment;
         return new Vector2(xOffset, 0);
     }
+    
+    public update(data: HeartData) {
+        this.updateHeartCount(data.number);
+        if (data.position) {
+            this.updatePosition(data.position);
+        }
+    }
 
-    public update(heartCount: number) {
+    updatePosition(position: Vector2) { 
+        this.x = position.x;
+        this.y = position.y;
+    }
+
+    public updateHeartCount(heartCount: number) {
         if (heartCount === this.heartCount) return;
         else if (heartCount < this.heartCount) {
             this.removeHearts(heartCount);
@@ -54,6 +63,7 @@ export class HeartContainer extends Container {
         this.hearts = [];
     }
 
+    // TODO: add flashing animation
     public removeHearts(heartCount: number) {
         this.heartCount = heartCount;
         for (let i = this.heartCount; i >= 0; i--) {
