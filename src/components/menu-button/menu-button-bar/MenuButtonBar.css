@@ -1,6 +1,5 @@
 .menu-button-bar {
-    background-color: var(--grey);
-    background-color: var(--light-grey);
+    background-color: var(--ui-yellow-darker);
     width: 60%;
     flex-grow: 0.15;
     border-radius: 40px;

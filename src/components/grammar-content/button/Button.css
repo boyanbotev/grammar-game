@@ -1,10 +1,11 @@
 .button {
     border-radius: 40px;
     font-weight: 750;
+    background-color: var(--ui-yellow);
 }
 
 .glow {
-    box-shadow: 0 5px 20px var(--glow-green);
+    box-shadow: 0 5px 20px var(--ui-yellow);
 }
 
 @media screen and (max-height: 600px) {

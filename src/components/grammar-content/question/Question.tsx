@@ -8,7 +8,7 @@ type QuestionProps ={
 // rename?
 const Question: React.FC<QuestionProps> = ({ children }) => {
     return (
-        <div className="question glow-less" data-testid="question">
+        <div className="question" data-testid="question">
             <p> 
                 {children}
             </p>

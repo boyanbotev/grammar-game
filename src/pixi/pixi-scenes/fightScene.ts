@@ -18,8 +18,8 @@ export class FightScene extends Container implements Scene {
         // TODO: use background id to get img
         this.background = new Background(imgUrl, this);
 
-        const heartSize = window.innerWidth/10;
-        const enemyHeartSize = window.innerWidth/14;
+        const heartSize = window.innerWidth/15;
+        const enemyHeartSize = window.innerWidth/15;
 
         this.enemyHeartContainer = new HeartContainer(enemyHeartSize, this);
         this.playerHeartContainer = new HeartContainer(heartSize, this);

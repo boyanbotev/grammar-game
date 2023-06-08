@@ -24,7 +24,7 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
         backGroundImageID: 1,
         playerHearts: {
             number: playerHearts,
-            position: new Vector2(window.innerWidth/1.2, window.innerHeight/2.5)
+            position: new Vector2(window.innerWidth/1.13, window.innerHeight/2.5)
         },
         opponentHearts: {
             number: enemyHearts,
@@ -32,7 +32,7 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
         }
     });
 
-    // GET this data from scene file
+    // TODO: GET this data from scene file
     useEffect(() => {
         game.setPlayerHearts(3);
         game.setEnemyHearts(5);

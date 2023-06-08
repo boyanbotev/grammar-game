@@ -1,5 +1,5 @@
 .question {
-    background-color: white;
+    background-color: var(--ui-yellow);
     border-radius: 20px;
 
     margin-top: 62vh;
@@ -12,7 +12,6 @@
     font-weight:500;
 }
 
-/* should be called glow-more? */
 .glow-less {
-    box-shadow: 0 5px 30px var(--glow-green);
+    box-shadow: 0 5px 30px var(--ui-yellow);
 }
