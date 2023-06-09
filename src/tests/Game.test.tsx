@@ -8,9 +8,12 @@ import { RootStoreContext } from '../useGame';
 
 const rootStore = new RootStore();
 
-const mockCanvasComponent: React.FC<CanvasProps> = () => {
+const mockCanvasComponent: React.FC<CanvasProps> = ({ canvasSceneData }) => {
   return (
-    <div id="mock"><h1>Mock heading</h1></div>
+    <div id="mock">
+      <h1>Mock heading</h1>
+      <p>{canvasSceneData.sceneType}</p>
+    </div>
   )
 }
 
@@ -27,6 +30,11 @@ describe('Game', () => {
   it('renders mocked component', () => {
     renderGameWithMockedCanvas();
     expect(screen.getByText('Mock heading')).toBeInTheDocument();
+  });
+
+  it('renders mocked component with correct canvasData', () => {
+    renderGameWithMockedCanvas();
+    expect(screen.getByText('story')).toBeInTheDocument();
   });
 
   it('renders question', () => {

@@ -4,6 +4,7 @@ export class GameStore {
     private questionIndex: number = 0;
     private playerHearts: number = 0;
     private enemyHearts: number = 0;
+    private sceneIndex: number = 0;
     
     constructor() {
         makeAutoObservable(this, {}, { autoBind: true });
@@ -21,6 +22,10 @@ export class GameStore {
         this.enemyHearts = hearts;
     }
 
+    public setSceneIndex(index: number): void {
+        this.sceneIndex = index;
+    }
+
     public deincrementPlayerHearts() {
         if (this.playerHearts <= 0) throw new Error("Hearts must be positive integer");
         this.playerHearts--;
@@ -29,6 +34,10 @@ export class GameStore {
     public deincrementEnemyHearts() {
         if (this.enemyHearts <= 0) throw new Error("Hearts must be positive integer");
         this.enemyHearts--;
+    }
+
+    public incrementSceneIndex() {
+        this.sceneIndex++;
     }
 
     public getPlayerHearts(): number {
@@ -41,5 +50,9 @@ export class GameStore {
 
     public getQuestionIndex(): number {
         return this.questionIndex;
+    }
+
+    public getSceneIndex(): number {
+        return this.sceneIndex;
     }
 }

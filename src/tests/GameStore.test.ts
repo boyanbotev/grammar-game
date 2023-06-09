@@ -39,7 +39,19 @@ describe("GameStore", () => {
         expect(() => gameStore.deincrementPlayerHearts()).toThrowError();
     });
 
-    it ("sets sceneData", () => {
-       expect.assertions(1);
+    it ("sets sceneIndex", () => {
+       const gameStore = new GameStore();
+       gameStore.setSceneIndex(0);
+       
+       const sceneIndex = gameStore.getSceneIndex();
+       expect(sceneIndex).toBe(0);
+    });
+
+    it("increments scene index", () => {
+        const gameStore = new GameStore();
+        gameStore.incrementSceneIndex();
+
+        const sceneIndex = gameStore.getSceneIndex();
+        expect(sceneIndex).toBe(1);
     });
 });

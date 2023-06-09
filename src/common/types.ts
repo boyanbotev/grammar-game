@@ -55,7 +55,7 @@ export type HeartData = {
 
 export type StorySceneCanvasData = {
     sceneType: SceneType.story;
-    backGroundImageIDs: number[];
+    backGroundImageID: number;
 }
 
 export type Question = {

@@ -19,6 +19,7 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
     const playerHearts  = game.getPlayerHearts();
     const enemyHearts = game.getEnemyHearts();
 
+    // should be on a different level of abstraction
     const [canvasData, setCanvasData] = useState<FightSceneCanvasData>({
         sceneType: SceneType.fight,
         backGroundImageID: 0,
@@ -35,6 +36,7 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
     // TODO: GET this data from scene file
     // How do we know what scene we're on?
     // MobX store
+    // should be on a different level of abstraction
     useEffect(() => {
         game.setPlayerHearts(3);
         game.setEnemyHearts(5);
