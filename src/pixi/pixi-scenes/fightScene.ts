@@ -1,6 +1,3 @@
-import { Assets, Container } from "pixi.js";
-
-import { Background } from "../pixi-components/background";
 import { Scene } from "./Scene";
 import { HeartContainer } from "../pixi-components/heartContainer";
 import { CanvasSceneData, SceneType } from "../../common/types";

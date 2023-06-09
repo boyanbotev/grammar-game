@@ -4,34 +4,31 @@ import { SceneData, SceneType } from "./types";
 const scenesData: SceneData[] = [
     {
         canvasData: {
-            sceneType: SceneType.story,
-            backGroundImageIDs: [0,1,2],
+            sceneType: SceneType.fight,
+            backGroundImageID: 0,
+            playerHearts: {
+                number: 3,
+                position: new Vector2(window.innerWidth/1.13, window.innerHeight/2.5)
+            },
+            opponentHearts: {
+                number: 7,
+                position: new Vector2(window.innerWidth/2, 0)
+            }
         },
         textData: {
-            sceneType: SceneType.story,
-            storyText: [
-                "Test 0 1",
-                "Test 0 2",
-                "test 0 3"
-            ]
+            questionIndexes: [0,1],
         }
     },
     {
         canvasData: {
-            sceneType: SceneType.fight,
-            backGroundImageID: 4,
-            playerHearts: {
-                number: 3,
-                position: new Vector2(100,100),
-            },
-            opponentHearts: {
-                number: 5,
-                position: new Vector2(0,0),
-            }
+            sceneType: SceneType.story,
+            backGroundImageID: 2,
         },
         textData: {
-            sceneType: SceneType.fight,
-            questionIndexes: [0,1],
+            storyText: [
+                "/////////////",
+                "GGGGGGGGGGGGGG"
+            ]
         }
     }
 ]

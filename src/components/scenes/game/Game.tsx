@@ -4,10 +4,11 @@ import './Game.css';
 import { CanvasProps } from '../../canvas/PixiCanvas';
 import GrammarContent from '../../grammar-content/GrammarContent';
 import MenuButton from '../../menu-button/MenuButton';
-import { CanvasSceneData, FightSceneCanvasData, SceneType } from '../../../common/types';
+import { CanvasSceneData, FightSceneCanvasData, SceneType, StorySceneCanvasData, StorySceneTextData } from '../../../common/types';
 import React, { useState, useEffect } from 'react';
 import { useGame } from '../../../useGame';
 import { Vector2 } from '../../../common/Vector2';
+import scenesData from '../../../common/scenesData';
 
 type GameProps = {
     canvasComponent: React.FC<CanvasProps>,
@@ -16,51 +17,54 @@ type GameProps = {
 // TODO: make flexible to other scene types  / rename ?
 const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }) => {
     const { game } = useGame();
-    const playerHearts  = game.getPlayerHearts();
+    const playerHearts  = game.getPlayerHearts(); // this should be handled Elsewhere
     const enemyHearts = game.getEnemyHearts();
 
-    // should be on a different level of abstraction
-    const [canvasData, setCanvasData] = useState<FightSceneCanvasData>({
-        sceneType: SceneType.fight,
-        backGroundImageID: 0,
-        playerHearts: {
-            number: playerHearts,
-            position: new Vector2(window.innerWidth/1.13, window.innerHeight/2.5)
-        },
-        opponentHearts: {
-            number: enemyHearts,
-            position: new Vector2(window.innerWidth/2, 0)
-        }
-    });
+    // should be on a different level of abstraction - and should get from scene file
+    const [canvasData, setCanvasData] = useState<CanvasSceneData>(scenesData[game.getSceneIndex()].canvasData);
 
-    // TODO: GET this data from scene file
-    // How do we know what scene we're on?
-    // MobX store
-    // should be on a different level of abstraction
+    // TODO: should be on a different level of abstraction
     useEffect(() => {
-        game.setPlayerHearts(3);
-        game.setEnemyHearts(5);
+        switch (scenesData[game.getSceneIndex()].canvasData.sceneType) {
+            case SceneType.fight:
+                const data = scenesData[game.getSceneIndex()].canvasData as FightSceneCanvasData;
+                game.setPlayerHearts(data.playerHearts.number);
+                game.setEnemyHearts(data.opponentHearts.number);
+        }
     }, []);
 
+    // TODO: This is entirely based around Fight, should be decoupled into another component
+    const setFightCanvasData = (prevData: FightSceneCanvasData) => {
+        setCanvasData(({
+            ...prevData,
+            playerHearts: { 
+                ...prevData.playerHearts,
+                number: playerHearts 
+            },
+            opponentHearts: { 
+                ...prevData.opponentHearts,
+                number: enemyHearts 
+            },
+        }));
+    }
+
+    // TODO: This is entirely based around Fight, should be decoupled into another component
     useEffect(() => {
-            setCanvasData((prevCanvasData) => ({
-                ...prevCanvasData,
-                playerHearts: { 
-                    ...prevCanvasData.playerHearts,
-                    number: playerHearts 
-                },
-                opponentHearts: { 
-                    ...prevCanvasData.opponentHearts,
-                    number: enemyHearts 
-                },
-            }));
+        switch(canvasData.sceneType) {
+            case SceneType.fight:
+                setFightCanvasData(canvasData as FightSceneCanvasData);
+        }
+            
     }, [playerHearts, enemyHearts],);
 
+    // TODO: should render stuff below conditionally based on sceneType 
+    const data = scenesData[game.getSceneIndex()];
+    const TextContent = data.canvasData.sceneType===SceneType.fight ? <GrammarContent /> : <p>{data.canvasData.sceneType}</p>
     return (
         <>
             <CanvasComponent canvasSceneData={canvasData} />
             <div id="UIlayer">
-                <GrammarContent />
+                {TextContent}
             </div>
             <MenuButton/>       
         </>

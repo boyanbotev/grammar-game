@@ -4,6 +4,7 @@ import { FightScene } from '../../pixi/pixi-scenes/fightScene';
 import { CanvasSceneData, SceneType, } from '../../common/types';
 import { Scene } from '../../pixi/pixi-scenes/Scene';
 import { CanvasSceneManager } from '../../pixi/CanvasSceneManager';
+import { BaseScene } from '../../pixi/pixi-scenes/baseScene';
 
 export type CanvasProps = {
     canvasSceneData: CanvasSceneData,
@@ -38,10 +39,15 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
         if (canvasSceneData)
         switch (canvasSceneData.sceneType) {
             case SceneType.fight:
-                const scene = new FightScene();
-                manager.changeScene(scene);
-                setScene(scene);
-                break;          
+                const fightScene = new FightScene();
+                manager.changeScene(fightScene);
+                setScene(fightScene);
+                break;
+            case SceneType.story:
+                const storyScene = new BaseScene();
+                manager.changeScene(storyScene);
+                setScene(storyScene);
+                break;
         }
     }, []);
 
@@ -50,7 +56,7 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
         if (scene){
             scene.update(canvasSceneData);
         }
-    }, [canvasSceneData]);
+    }, [scene, canvasSceneData]);
 
     return <canvas ref={canvasRef}/>;
 }

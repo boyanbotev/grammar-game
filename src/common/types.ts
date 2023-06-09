@@ -24,12 +24,10 @@ export type StorySceneData = {
 export type TextSceneData = FightSceneTextData | StorySceneTextData;
 
 export type FightSceneTextData = {
-    sceneType: SceneType.fight;
     questionIndexes: number[];
 }
 
 export type StorySceneTextData = {
-    sceneType: SceneType.story;
     storyText: string[];
 }
 
