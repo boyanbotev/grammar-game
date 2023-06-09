@@ -5,6 +5,7 @@
     transform: translate(-50%, 0);
     /* left 50 and transform translate -50% seem to mess up very thin width screen */
 
+    width: 92.5vw;
     height: 100vh;
 
     display: flex;

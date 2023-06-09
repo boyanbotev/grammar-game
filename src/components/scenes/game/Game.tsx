@@ -9,6 +9,7 @@ import React, { useState, useEffect } from 'react';
 import { useGame } from '../../../useGame';
 import { Vector2 } from '../../../common/Vector2';
 import scenesData from '../../../common/scenesData';
+import StoryText from '../../story/StoryText';
 
 type GameProps = {
     canvasComponent: React.FC<CanvasProps>,
@@ -59,7 +60,7 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
 
     // TODO: should render stuff below conditionally based on sceneType 
     const data = scenesData[game.getSceneIndex()];
-    const TextContent = data.canvasData.sceneType===SceneType.fight ? <GrammarContent /> : <p>{data.canvasData.sceneType}</p>
+    const TextContent = data.canvasData.sceneType===SceneType.fight ? <GrammarContent /> : <StoryText textData={data.textData as StorySceneTextData}/>
     return (
         <>
             <CanvasComponent canvasSceneData={canvasData} />
@@ -72,3 +73,7 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
 })
 
 export default Game;
+
+// TODO: Switch between different React components for different scene types, passing in CanvasComponent as a prop
+
+// TODO:something about question width?

@@ -26,7 +26,7 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "/////////////",
+                "First of all, I hope you are happy every day. I'm sorry it's too late to write to you. I am very happy to hear about your new job. I also hope that your future job will bring you new experiences and different lives.",
                 "GGGGGGGGGGGGGG"
             ]
         }

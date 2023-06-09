@@ -4,7 +4,9 @@ export class GameStore {
     private questionIndex: number = 0;
     private playerHearts: number = 0;
     private enemyHearts: number = 0;
-    private sceneIndex: number = 0;
+    private sceneIndex: number = 1;
+
+    // TODO: different stores for universal properties, Fight, and Story?
     
     constructor() {
         makeAutoObservable(this, {}, { autoBind: true });
