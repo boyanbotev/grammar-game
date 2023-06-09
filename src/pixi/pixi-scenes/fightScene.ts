@@ -4,9 +4,9 @@ import { Background } from "../pixi-components/background";
 import { Scene } from "./Scene";
 import { HeartContainer } from "../pixi-components/heartContainer";
 import { CanvasSceneData, SceneType } from "../../common/types";
+import { BaseScene } from "./baseScene";
 
-export class FightScene extends Container implements Scene {
-    private background: Background;
+export class FightScene extends BaseScene implements Scene {
     private playerHeartContainer: HeartContainer;
     private enemyHeartContainer: HeartContainer;
 
@@ -14,8 +14,6 @@ export class FightScene extends Container implements Scene {
         super();
 
         const heartSize = window.innerWidth/15;
-
-        this.background = new Background(null, this);
 
         this.enemyHeartContainer = new HeartContainer(heartSize, this);
         this.playerHeartContainer = new HeartContainer(heartSize, this);
@@ -32,15 +30,4 @@ export class FightScene extends Container implements Scene {
         this.playerHeartContainer.update(canvasSceneData.playerHearts)
         this.enemyHeartContainer.update(canvasSceneData.opponentHearts);
     }
-
-    async changeBackground(backgroundID: number): Promise<void>{
-
-        const backGroundsBundle = await Assets.loadBundle("backgroundsBundle");
-
-        const backgroundTexture = backGroundsBundle[backgroundID];
-
-        if (this.background.texture !== backgroundTexture){
-            this.background.texture = backgroundTexture;
-        }
-    };
 }
