@@ -1,9 +1,5 @@
 import { Vector2 } from './Vector2';
 
-//type SceneType = "home" | "settings" |  "story" | "learning" | "fight" | "challenge";
-// can be toggled in MobX state?
-// each connects to a React component
-
 export enum SceneType {
     "home" = "home",
     "settings" = "settings",
@@ -13,19 +9,29 @@ export enum SceneType {
     "challenge" = "challenge"
 }
 
-// export type CanvasSceneData = {
-//     sceneType: SceneType;
-//     backGroundImageID: number;
-//     playerHearts?: {
-//         number: number;
-//         position?: Vector2;
-//     };
-//     opponentHearts?: {
-//         number: number;
-//         position?: Vector2;
-//         colour?: number;
-//     };
-// };
+export type SceneData = FightSceneData | StorySceneData;
+
+export type FightSceneData = {
+    canvasData: FightSceneCanvasData,
+    textData: FightSceneTextData,
+}
+
+export type StorySceneData = {
+    canvasData: StorySceneCanvasData,
+    textData: StorySceneTextData,
+}
+
+export type TextSceneData = FightSceneTextData | StorySceneTextData;
+
+export type FightSceneTextData = {
+    sceneType: SceneType.fight;
+    questionIndexes: number[];
+}
+
+export type StorySceneTextData = {
+    sceneType: SceneType.story;
+    storyText: string[];
+}
 
 export type CanvasSceneData = FightSceneCanvasData | StorySceneCanvasData;
 
@@ -49,7 +55,7 @@ export type HeartData = {
 
 export type StorySceneCanvasData = {
     sceneType: SceneType.story;
-    backGroundImageID: number;
+    backGroundImageIDs: number[];
 }
 
 export type Question = {

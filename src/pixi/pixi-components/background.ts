@@ -1,10 +1,10 @@
 import { Container, Sprite, Texture } from "pixi.js";
 
 export class Background extends Sprite {
-    constructor(imgUrl: string, parent: Container) {
+    constructor(texture: Texture | null, parent: Container) {
         super();
 
-        this.texture = Texture.from(imgUrl);
+        if (texture) this.texture = texture;
         this.tint = '0x999999';
 
         parent.addChild(this);

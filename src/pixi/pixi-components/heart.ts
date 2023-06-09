@@ -1,8 +1,6 @@
-import { Sprite, Texture } from "pixi.js";
+import { Sprite, Assets } from "pixi.js";
 
 import { Vector2 } from "../../common/Vector2";
-import imgUrl from '../../assets/heart pinker pxlr.png';
-// TODO: Refactor with Asset Loading
 
 export class Heart extends Sprite {
     constructor(
@@ -17,7 +15,12 @@ export class Heart extends Sprite {
         this.x = position.x
         this.y = position.y
 
-        this.texture = Texture.from(imgUrl);
+        this.asyncConstructor();
+    }
+
+    async asyncConstructor() {
+        const uiBundle = await Assets.loadBundle("uiBundle");
+        this.texture = uiBundle["heart"];
         this.tint = 0xff8888;
     }
 }

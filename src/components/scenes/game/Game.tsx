@@ -21,7 +21,7 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
 
     const [canvasData, setCanvasData] = useState<FightSceneCanvasData>({
         sceneType: SceneType.fight,
-        backGroundImageID: 1,
+        backGroundImageID: 0,
         playerHearts: {
             number: playerHearts,
             position: new Vector2(window.innerWidth/1.13, window.innerHeight/2.5)
@@ -33,6 +33,8 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
     });
 
     // TODO: GET this data from scene file
+    // How do we know what scene we're on?
+    // MobX store
     useEffect(() => {
         game.setPlayerHearts(3);
         game.setEnemyHearts(5);

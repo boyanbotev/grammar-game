@@ -37,5 +37,9 @@ describe("GameStore", () => {
         const gameStore = new GameStore();
         gameStore.setPlayerHearts(-1);
         expect(() => gameStore.deincrementPlayerHearts()).toThrowError();
-    })
+    });
+
+    it ("sets sceneData", () => {
+       expect.assertions(1);
+    });
 });

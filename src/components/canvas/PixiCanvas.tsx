@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import { FightScene } from '../../pixi/pixi-scenes/fightScene';
 import { CanvasSceneData, SceneType, } from '../../common/types';
 import { Scene } from '../../pixi/pixi-scenes/Scene';
+import { CanvasSceneManager } from '../../pixi/CanvasSceneManager';
 
 export type CanvasProps = {
     canvasSceneData: CanvasSceneData,
@@ -10,6 +11,7 @@ export type CanvasProps = {
 
 const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const [sceneManager, setSceneManager] = useState<CanvasSceneManager | null>(null);
     const [scene, setScene] = useState<Scene>();
 
     useEffect(() => {
@@ -29,28 +31,18 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
             resizeTo: window,
         });
 
+        const manager = new CanvasSceneManager(app);
+        setSceneManager(manager);
+
+        // this should happen when canvasSceneData.SceneType changes
         if (canvasSceneData)
         switch (canvasSceneData.sceneType) {
             case SceneType.fight:
                 const scene = new FightScene();
-                app.stage.addChild(scene);
+                manager.changeScene(scene);
                 setScene(scene);
                 break;          
         }
-        
-        
-        
-        //GPT
-
-        // State management
-        // Use a state management library like Redux or React Context API to manage the shared data and state between the scene components 
-        // and the PixiCanvas component. 
-        // This will allow you to pass necessary data and commands between them without directly coupling them.
-
-        // Scene switching
-        // When switching between scenes, use the scene management system to unload the current scene,
-        // load the necessary assets for the new scene, and inform the PixiCanvas component about the scene change. 
-        // The PixiCanvas component can then update its visuals accordingly.
     }, []);
 
     useEffect(() => {
