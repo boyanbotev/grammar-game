@@ -26,7 +26,7 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "First of all, I hope you are happy every day. I'm sorry it's too late to write to you. I am very happy to hear about your new job. I also hope that your future job will bring you new experiences and different lives.",
+                "Aurora had a special gift. She could see colours whenever she heard sounds. Even though she couldn't see with her eyes, her world was filled with beautiful colours that danced around her.",
                 "GGGGGGGGGGGGGG"
             ]
         }

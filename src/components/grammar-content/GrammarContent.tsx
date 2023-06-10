@@ -8,16 +8,16 @@ import Answers from './answers/Answers';
 import { useGame } from '../../useGame';
 
 const GrammarContent: React.FC = observer(() => {
-    const { game } = useGame();
-    const questionIndex = game.getQuestionIndex();
+    const { fightScene } = useGame();
+    const questionIndex = fightScene.getQuestionIndex();
 
     const handleCorrectAnswer = () => {
         goToNextQuestion();
-        game.deincrementEnemyHearts();
+        fightScene.deincrementEnemyHearts();
     }
 
     const handleIncorrectAnswer = () => {
-        game.deincrementPlayerHearts();
+        fightScene.deincrementPlayerHearts();
     }
 
     const goToNextQuestion = () => {
@@ -28,7 +28,7 @@ const GrammarContent: React.FC = observer(() => {
     const incrementQuestionIndex = () => {
         if (questionIndex >= questions.length -1) return;
 
-        game.setQuestionIndex(questionIndex + 1);
+        fightScene.setQuestionIndex(questionIndex + 1);
     };
 
     return (

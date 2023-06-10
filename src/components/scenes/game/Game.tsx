@@ -17,9 +17,9 @@ type GameProps = {
 
 // TODO: make flexible to other scene types  / rename ?
 const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }) => {
-    const { game } = useGame();
-    const playerHearts  = game.getPlayerHearts(); // this should be handled Elsewhere
-    const enemyHearts = game.getEnemyHearts();
+    const { fightScene, game } = useGame();
+    const playerHearts  = fightScene.getPlayerHearts(); // this should be handled Elsewhere
+    const enemyHearts = fightScene.getEnemyHearts();
 
     // should be on a different level of abstraction - and should get from scene file
     const [canvasData, setCanvasData] = useState<CanvasSceneData>(scenesData[game.getSceneIndex()].canvasData);
@@ -29,8 +29,8 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
         switch (scenesData[game.getSceneIndex()].canvasData.sceneType) {
             case SceneType.fight:
                 const data = scenesData[game.getSceneIndex()].canvasData as FightSceneCanvasData;
-                game.setPlayerHearts(data.playerHearts.number);
-                game.setEnemyHearts(data.opponentHearts.number);
+                fightScene.setPlayerHearts(data.playerHearts.number);
+                fightScene.setEnemyHearts(data.opponentHearts.number);
         }
     }, []);
 
