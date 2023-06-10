@@ -24,7 +24,6 @@ const renderGameWithMockedCanvas = () => {
     </RootStoreContext.Provider>
   );
 }
-// TODO: now all tests are dependent on MobX working 
 
 describe('Game', () => {
   it('renders mocked component', () => {
@@ -34,7 +33,7 @@ describe('Game', () => {
 
   it('renders mocked component with correct canvasData', () => {
     renderGameWithMockedCanvas();
-    expect(screen.getByText('story')).toBeInTheDocument();
+    expect(screen.getByText('fight')).toBeInTheDocument();
   });
 
   it('renders question', () => {

@@ -15,7 +15,6 @@ const renderGrammarContent = () => {
       </RootStoreContext.Provider>
     );
 }
-// TODO: now all tests are dependent on MobX working 
 
 describe("GrammarContent", () => {
     vi.useFakeTimers();
