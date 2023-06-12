@@ -24,7 +24,7 @@ export type StorySceneData = {
 export type TextSceneData = FightSceneTextData | StorySceneTextData;
 
 export type FightSceneTextData = {
-    questionIndexes: number[];
+    questionIDs: number[];
 }
 
 export type StorySceneTextData = {

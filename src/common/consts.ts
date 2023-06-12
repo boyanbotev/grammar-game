@@ -38,5 +38,18 @@ export const questions: Question[] = [
                 correct: false
             },
         ]
+    },
+    {
+        question: "Who are you?",
+        answers: [
+            {
+                content: "Who who?",
+                correct: true,
+            },
+            {
+                content: "who who?",
+                correct: true,
+            }
+        ]
     }
 ];

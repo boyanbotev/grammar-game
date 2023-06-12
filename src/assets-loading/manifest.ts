@@ -13,7 +13,7 @@ export const manifest: ResolverManifest = {
         {
             name: "uiBundle",
             assets: {
-                "heart": 'src/assets/images/heart.png',
+                "heart": 'src/assets/images/heart light.png',
             }
         }
     ]

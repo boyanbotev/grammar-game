@@ -50,3 +50,5 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
 });
 
 export default Game;
+
+// TODO: wait for application to load before loading UI???

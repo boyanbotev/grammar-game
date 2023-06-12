@@ -21,7 +21,8 @@ export class Heart extends Sprite {
     async asyncConstructor() {
         const uiBundle = await Assets.loadBundle("uiBundle");
         this.texture = uiBundle["heart"];
-        // this.tint = 0xff8888;
-        this.tint = 0xffeeee;
+        //this.tint = 0xff8888;
+        this.tint = 0xff5500;
+        // this.tint = 0xffeeee;
     }
 }

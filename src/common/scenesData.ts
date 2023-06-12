@@ -16,7 +16,7 @@ const scenesData: SceneData[] = [
             }
         },
         textData: {
-            questionIndexes: [0,1],
+            questionIDs: [0,1],
         }
     },
     {

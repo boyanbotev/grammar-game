@@ -33,7 +33,7 @@ const GrammarContent: React.FC = observer(() => {
     };
     
     const GoToNext = () => {
-        if (questionIndex >= questions.length -1 || questionIndex >= textData.questionIndexes.length -1) {
+        if (questionIndex >= questions.length -1 || questionIndex >= textData.questionIDs.length -1) {
             handleLastQuestion();
             return;
         }
@@ -41,11 +41,13 @@ const GrammarContent: React.FC = observer(() => {
         fightScene.setQuestionIndex(questionIndex + 1);
     };
 
+    // TODO: Win & lose game
+
     return (
         <div id="grammar">
             <GrammarItemContainer>
                 <Question>
-                    {questions[textData.questionIndexes[questionIndex]].question}
+                    {questions[textData.questionIDs[questionIndex]].question}
                 </Question>
             </GrammarItemContainer>
             <GrammarItemContainer>
