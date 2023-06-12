@@ -34,11 +34,18 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
             resizeTo: window,
 
         });
+        setApp(app);     
         console.log("create Pixi Application");
-        setApp(app);
+
+        const manager = new CanvasSceneManager(app);
+        setSceneManager(manager);
         
         return () => app.destroy();
     }, []);
+
+    useEffect(() => {
+        changeScene();
+    }, [app, canvasSceneData]);
 
     useEffect(() => {
         console.log(canvasSceneData);
@@ -47,34 +54,35 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
         }
     }, [scene, canvasSceneData]);
 
-    useEffect(() => {
+    const changeScene = () => {
         if (app === null) {
             console.log("app is null");
             return;
         }
 
-        let manager;
-        if (!sceneManager) {
-            manager = new CanvasSceneManager(app);
-            setSceneManager(manager);
-        } else {
-            manager = sceneManager;
+        if (sceneManager === null) {
+            console.log("sceneManager is null");
+            return;
         }
 
-        if (canvasSceneData)
+        if (canvasSceneData === null) {
+            console.log("canvasSceneData is null");
+            return;
+        }
+
         switch (canvasSceneData.sceneType) {
             case SceneType.fight:
                 const fightScene = new FightScene();
-                manager.changeScene(fightScene);
+                sceneManager.changeScene(fightScene);
                 setScene(fightScene);
                 break;
             case SceneType.story:
                 const storyScene = new BaseScene();
-                manager.changeScene(storyScene);
+                sceneManager.changeScene(storyScene);
                 setScene(storyScene);
                 break;
         }
-    }, [app, canvasSceneData]);
+    }
 
     return <canvas ref={canvasRef}/>;
 };

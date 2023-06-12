@@ -6,13 +6,16 @@ import GrammarItemContainer from './grammar-item-container/GrammarItemContainer'
 import { questions } from '../../common/consts';
 import Answers from './answers/Answers';
 import { useGame } from '../../useGame';
+import scenesData from '../../common/scenesData';
+import { FightSceneTextData } from '../../common/types';
 
 const GrammarContent: React.FC = observer(() => {
     const { fightScene, game } = useGame();
     const questionIndex = fightScene.getQuestionIndex();
+    const textData = scenesData[game.getSceneIndex()].textData as FightSceneTextData;
 
     const handleCorrectAnswer = () => {
-        goToNextQuestion();
+        PrepareTogoToNext();
         fightScene.deincrementEnemyHearts();
     }
 
@@ -24,13 +27,13 @@ const GrammarContent: React.FC = observer(() => {
         game.incrementSceneIndex();
     }
 
-    const goToNextQuestion = () => {
+    const PrepareTogoToNext = () => {
         const milis = 650;
-        setTimeout(() => incrementQuestionIndex(), milis);
+        setTimeout(() => GoToNext(), milis);
     };
     
-    const incrementQuestionIndex = () => {
-        if (questionIndex >= questions.length -1) {
+    const GoToNext = () => {
+        if (questionIndex >= questions.length -1 || questionIndex >= textData.questionIndexes.length -1) {
             handleLastQuestion();
             return;
         }
@@ -42,7 +45,7 @@ const GrammarContent: React.FC = observer(() => {
         <div id="grammar">
             <GrammarItemContainer>
                 <Question>
-                    {questions[questionIndex].question}
+                    {questions[textData.questionIndexes[questionIndex]].question}
                 </Question>
             </GrammarItemContainer>
             <GrammarItemContainer>
