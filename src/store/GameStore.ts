@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 export class GameStore {
-    private sceneIndex: number = 1;
+    private sceneIndex: number = 0;
 
     // TODO: different stores for universal properties, Fight, and Story?
     

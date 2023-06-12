@@ -1,5 +1,6 @@
-import { Application } from 'pixi.js';
+import { Application, ICanvas } from 'pixi.js';
 import { useRef, useEffect, useState } from 'react';
+
 import { FightScene } from '../../pixi/pixi-scenes/fightScene';
 import { CanvasSceneData, SceneType, } from '../../common/types';
 import { Scene } from '../../pixi/pixi-scenes/Scene';
@@ -30,8 +31,14 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
             height: screenHeight,
             backgroundColor: 0x999999,
             resizeTo: window,
-        });
 
+        });
+        console.log("create Pixi Application");
+
+        if (app === null) {
+            return;
+            //throw new Error("Pixi Application is not initialized");
+        }
         const manager = new CanvasSceneManager(app);
         setSceneManager(manager);
 
@@ -49,6 +56,8 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
                 setScene(storyScene);
                 break;
         }
+
+        return () => app.destroy();
     }, []);
 
     useEffect(() => {

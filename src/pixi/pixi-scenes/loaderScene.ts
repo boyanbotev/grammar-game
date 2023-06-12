@@ -34,6 +34,7 @@ export class LoaderScene extends Container implements Scene {
 
     public async loadAssets(): Promise<void> {
         await Assets.init({ manifest: manifest });
+        console.log("load assets");
 
         const bundleIds = manifest.bundles.map((bundle) => bundle.name);
 

@@ -8,7 +8,7 @@ import Answers from './answers/Answers';
 import { useGame } from '../../useGame';
 
 const GrammarContent: React.FC = observer(() => {
-    const { fightScene } = useGame();
+    const { fightScene, game } = useGame();
     const questionIndex = fightScene.getQuestionIndex();
 
     const handleCorrectAnswer = () => {
@@ -20,13 +20,20 @@ const GrammarContent: React.FC = observer(() => {
         fightScene.deincrementPlayerHearts();
     }
 
+    const handleLastQuestion = () => {
+        game.incrementSceneIndex();
+    }
+
     const goToNextQuestion = () => {
         const milis = 650;
         setTimeout(() => incrementQuestionIndex(), milis);
     };
     
     const incrementQuestionIndex = () => {
-        if (questionIndex >= questions.length -1) return;
+        if (questionIndex >= questions.length -1) {
+            handleLastQuestion();
+            return;
+        }
 
         fightScene.setQuestionIndex(questionIndex + 1);
     };

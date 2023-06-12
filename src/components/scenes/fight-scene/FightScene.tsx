@@ -28,6 +28,7 @@ const FightScene: React.FC<FightSceneProps> = observer(({ Canvas, canvasData, se
         fightSceneStore.setEnemyHearts(data.opponentHearts.number);
     }
 
+    // WHat about changed background Image?
     useEffect(() => {
         setFightCanvasData(canvasData as FightSceneCanvasData);     
     }, [playerHearts, enemyHearts]);

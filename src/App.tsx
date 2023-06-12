@@ -14,5 +14,4 @@ function App() {
     </RootStoreContext.Provider>
   )
 }
-// TODO: Test rootstore
 export default App
