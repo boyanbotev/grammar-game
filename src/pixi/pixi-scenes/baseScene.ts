@@ -10,7 +10,6 @@ export class BaseScene extends Container implements Scene {
     constructor() {
         super();
         this.background = new Background(null, this);
-        console.log("base scene");
     }
 
     async update(canvasSceneData: CanvasSceneData): Promise<void> {  

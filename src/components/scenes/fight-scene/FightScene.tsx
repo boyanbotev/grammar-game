@@ -13,7 +13,7 @@ type FightSceneProps = {
     setCanvasData: (data: CanvasSceneData) => void;
 }
 
-const FightScene: React.FC<FightSceneProps> = observer(({ Canvas, canvasData, setCanvasData }) => {
+const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasData }) => {
     const { fightScene: fightSceneStore, game } = useGame();
     const playerHearts  = fightSceneStore.getPlayerHearts();
     const enemyHearts = fightSceneStore.getEnemyHearts();
@@ -28,7 +28,6 @@ const FightScene: React.FC<FightSceneProps> = observer(({ Canvas, canvasData, se
         fightSceneStore.setEnemyHearts(data.opponentHearts.number);
     }
 
-    // WHat about changed background Image?
     useEffect(() => {
         setFightCanvasData(canvasData as FightSceneCanvasData);     
     }, [playerHearts, enemyHearts]);
@@ -48,12 +47,9 @@ const FightScene: React.FC<FightSceneProps> = observer(({ Canvas, canvasData, se
     }
 
     return (
-        <>
-            <Canvas canvasSceneData={canvasData}/>
-            <div id="UIlayer">
-                    <GrammarContent/>
-            </div>  
-        </>
+        <div id="UIlayer">
+                <GrammarContent/>
+        </div>  
     )
 });
 

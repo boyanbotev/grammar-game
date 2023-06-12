@@ -13,20 +13,17 @@ type StorySceneProps = {
     setCanvasData: (data: CanvasSceneData) => void;
 }
 
-const StoryScene: React.FC<StorySceneProps> = observer(({ Canvas, canvasData, setCanvasData }) => {
+const StoryScene: React.FC<StorySceneProps> = observer(({ }) => {
     const { game } = useGame();
     const textData = scenesData[game.getSceneIndex()].textData as StorySceneTextData;
     const magicIndex = 0;
 
     return (
-        <>
-            <Canvas canvasSceneData={canvasData}/>
-            <div id="UIlayer">
-                    <Question>
-                        {textData.storyText[magicIndex]}
-                    </Question>
-            </div>  
-        </>
+        <div id="UIlayer">
+                <Question>
+                    {textData.storyText[magicIndex]}
+                </Question>
+        </div>  
     )
 });
 

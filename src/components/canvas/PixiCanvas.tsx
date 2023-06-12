@@ -1,4 +1,4 @@
-import { Application, ICanvas } from 'pixi.js';
+import { Application } from 'pixi.js';
 import { useRef, useEffect, useState } from 'react';
 
 import { FightScene } from '../../pixi/pixi-scenes/fightScene';
@@ -14,6 +14,7 @@ export type CanvasProps = {
 const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [sceneManager, setSceneManager] = useState<CanvasSceneManager | null>(null);
+    const [app, setApp] = useState<Application | null>(null);
     const [scene, setScene] = useState<Scene>();
 
     useEffect(() => {
@@ -34,15 +35,32 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
 
         });
         console.log("create Pixi Application");
+        setApp(app);
+        
+        return () => app.destroy();
+    }, []);
 
-        if (app === null) {
-            return;
-            //throw new Error("Pixi Application is not initialized");
+    useEffect(() => {
+        console.log(canvasSceneData);
+        if (scene){
+            scene.update(canvasSceneData);
         }
-        const manager = new CanvasSceneManager(app);
-        setSceneManager(manager);
+    }, [scene, canvasSceneData]);
 
-        // this should happen when canvasSceneData.SceneType changes
+    useEffect(() => {
+        if (app === null) {
+            console.log("app is null");
+            return;
+        }
+
+        let manager;
+        if (!sceneManager) {
+            manager = new CanvasSceneManager(app);
+            setSceneManager(manager);
+        } else {
+            manager = sceneManager;
+        }
+
         if (canvasSceneData)
         switch (canvasSceneData.sceneType) {
             case SceneType.fight:
@@ -56,18 +74,9 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
                 setScene(storyScene);
                 break;
         }
-
-        return () => app.destroy();
-    }, []);
-
-    useEffect(() => {
-        console.log(canvasSceneData);
-        if (scene){
-            scene.update(canvasSceneData);
-        }
-    }, [scene, canvasSceneData]);
+    }, [app, canvasSceneData]);
 
     return <canvas ref={canvasRef}/>;
-}
+};
 
 export default PixiCanvas;

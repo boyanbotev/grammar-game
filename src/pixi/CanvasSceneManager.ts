@@ -18,7 +18,7 @@ export class CanvasSceneManager {
     }
 
     public changeScene(newScene: Scene): void {
-
+        console.log("change Scene", newScene);
         if (this.currentScene === undefined) {
             this.currentScene = "initializing";
             this.initialize(newScene);
@@ -27,6 +27,7 @@ export class CanvasSceneManager {
 
         if (this.currentScene && this.currentScene !== "initializing") {
             this.app.stage.removeChild(this.currentScene);
+            console.log("destroy old scene");
             this.currentScene.destroy();
         }
 
