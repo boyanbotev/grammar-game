@@ -24,6 +24,31 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
         setCanvasData(scenesData[game.getSceneIndex()].canvasData);
     }, [sceneType]);
 
+    const chooseScene = () => {
+        switch(sceneType) {
+            case SceneType.fight:
+                console.log("rendering fight");
+                return (
+                    <>
+                        <FightScene Canvas={CanvasComponent} canvasData={canvasData} setCanvasData={setCanvasData}/>
+                        <MenuButton/>       
+                    </>
+                )
+            case SceneType.story:
+                console.log("rendering story");
+                return (
+                    <>
+                        <StoryScene Canvas={CanvasComponent} canvasData={canvasData} setCanvasData={setCanvasData}/>
+                        <MenuButton/>       
+                    </>
+                )
+            default:
+                throw new Error("Invalid scene type");
+        }     
+    }
+
+    const Scene = chooseScene();
+
     switch(sceneType) {
         case SceneType.fight:
             console.log("rendering fight");
