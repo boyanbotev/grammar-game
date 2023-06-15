@@ -5,7 +5,7 @@ export const manifest: ResolverManifest = {
         {
             name: "backgroundsBundle",
             assets: {
-                0: 'src/assets/images/fight-bear.jpg',
+                0: 'src/assets/images/fight-bear-wide.png',
                 1: 'src/assets/images/fight-bear-lake.jpg',
                 2: 'src/assets/images/owl.jpg',
             }

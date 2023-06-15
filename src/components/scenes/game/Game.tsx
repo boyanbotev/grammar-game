@@ -28,24 +28,29 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
         switch(sceneType) {
             case SceneType.fight:
                 return (
-                    <FightScene Canvas={CanvasComponent} canvasData={canvasData} setCanvasData={setCanvasData}/>  
+                    <>
+                        <FightScene Canvas={CanvasComponent} canvasData={canvasData} setCanvasData={setCanvasData}/>
+                        <MenuButton />
+                    </>
                 )
             case SceneType.story:
                 return (
-                    <StoryScene Canvas={CanvasComponent} canvasData={canvasData} setCanvasData={setCanvasData}/>   
+                    <>
+                        <StoryScene Canvas={CanvasComponent} canvasData={canvasData} setCanvasData={setCanvasData}/>
+                        <MenuButton />
+                    </>
                 )
             default:
                 return <></>
         }     
     }
 
-    const SceneComponent = chooseScene();
+    const SceneComponents = chooseScene();
 
     return (
         <>
             <CanvasComponent canvasSceneData={canvasData} />
-            {isLoaded ? SceneComponent : null}
-            <MenuButton/>
+            {isLoaded ? SceneComponents : null}
         </>
     )
 });

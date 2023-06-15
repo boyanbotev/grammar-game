@@ -22,20 +22,16 @@ export const questions: Question[] = [
         question: "Every day, I ____ to the park after dinner.",
         answers: [
             {
-                content: "is",
+                content: "went",
                 correct: false
-                },
+            },
             {
-                content: "have",
+                content: "be",
                 correct: false
                 },
             {
                 content: "go",
                 correct: true,
-            },
-            {
-                content: "went",
-                correct: false
             },
         ]
     },
