@@ -18,6 +18,7 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
     const { game } = useGame();
     const [canvasData, setCanvasData] = useState<CanvasSceneData>(scenesData[game.getSceneIndex()].canvasData);
     const sceneType = scenesData[game.getSceneIndex()].canvasData.sceneType;
+    const isLoaded = game.getCanvasLoaded();
 
     useEffect(() => {
         setCanvasData(scenesData[game.getSceneIndex()].canvasData);
@@ -43,12 +44,10 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
     return (
         <>
             <CanvasComponent canvasSceneData={canvasData} />
-            {SceneComponent}
+            {isLoaded ? SceneComponent : null}
             <MenuButton/>
         </>
     )
 });
 
 export default Game;
-
-// TODO: wait for application to load before loading UI???

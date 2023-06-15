@@ -4,10 +4,15 @@ import { LoaderScene } from "./pixi-scenes/loaderScene";
 
 export class CanvasSceneManager {
     private app: Application;
+    private onCanvasLoaded;
     private currentScene: Scene | undefined | "initializing" = undefined;
 
-    constructor(app: Application) {
+    constructor(
+        app: Application, 
+        onCanvasLoaded: () => void
+        ) {
         this.app = app;
+        this.onCanvasLoaded = onCanvasLoaded;
     }
 
     public async initialize(scene: Scene) {
@@ -15,6 +20,8 @@ export class CanvasSceneManager {
         this.changeScene(loaderScene);
         await loaderScene.loadAssets();
         this.changeScene(scene);
+
+        this.onCanvasLoaded();
     }
 
     public changeScene(newScene: Scene): void {

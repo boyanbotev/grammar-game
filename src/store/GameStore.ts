@@ -2,8 +2,9 @@ import { makeAutoObservable } from "mobx";
 
 export class GameStore {
     private sceneIndex: number = 0;
+    private isCanvasLoaded: boolean = false;
 
-    // TODO: different stores for universal properties, Fight, and Story?
+    // TODO: different store for Story?
     
     constructor() {
         makeAutoObservable(this, {}, { autoBind: true });
@@ -19,5 +20,13 @@ export class GameStore {
 
     public getSceneIndex(): number {
         return this.sceneIndex;
+    }
+
+    public setCanvasLoaded(isLoaded: boolean): void {
+        this.isCanvasLoaded = isLoaded;
+    }
+
+    public getCanvasLoaded(): boolean {
+        return this.isCanvasLoaded;
     }
 }

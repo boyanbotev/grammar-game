@@ -19,4 +19,12 @@ describe("GameStore", () => {
         const sceneIndex = gameStore.getSceneIndex();
         expect(sceneIndex).toBe(1);
     });
+
+    it("sets isCanvasLoaded", () => {
+        const gameStore = new GameStore();
+        gameStore.setCanvasLoaded(true);
+
+        const isCanvasLoaded = gameStore.getCanvasLoaded();
+        expect(isCanvasLoaded).toBe(true);
+    });
 });

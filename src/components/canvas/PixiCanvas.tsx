@@ -6,6 +6,7 @@ import { CanvasSceneData, SceneType, } from '../../common/types';
 import { Scene } from '../../pixi/pixi-scenes/Scene';
 import { CanvasSceneManager } from '../../pixi/CanvasSceneManager';
 import { BaseScene } from '../../pixi/pixi-scenes/baseScene';
+import { useGame } from '../../useGame';
 
 export type CanvasProps = {
     canvasSceneData: CanvasSceneData,
@@ -16,6 +17,7 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
     const [sceneManager, setSceneManager] = useState<CanvasSceneManager | null>(null);
     const [app, setApp] = useState<Application | null>(null);
     const [scene, setScene] = useState<Scene>();
+    const { game } = useGame();
 
     useEffect(() => {
         const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -37,7 +39,7 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
         setApp(app);     
         console.log("create Pixi Application");
 
-        const manager = new CanvasSceneManager(app);
+        const manager = new CanvasSceneManager(app, onCanvasLoaded);
         setSceneManager(manager);
         
         return () => app.destroy();
@@ -82,6 +84,10 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
                 setScene(storyScene);
                 break;
         }
+    }
+
+    const onCanvasLoaded = () => {
+        game.setCanvasLoaded(true);
     }
 
     return <canvas ref={canvasRef}/>;
