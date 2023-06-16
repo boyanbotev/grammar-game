@@ -15,7 +15,7 @@ const GrammarContent: React.FC = observer(() => {
     const textData = scenesData[game.getSceneIndex()].textData as FightSceneTextData;
 
     const handleCorrectAnswer = () => {
-        PrepareTogoToNext();
+        PrepareTogoToNextQuestion();
         fightScene.deincrementEnemyHearts();
     }
 
@@ -23,19 +23,14 @@ const GrammarContent: React.FC = observer(() => {
         fightScene.deincrementPlayerHearts();
     }
 
-    const handleLastQuestion = () => {
-        game.incrementSceneIndex();
-    }
-
-    const PrepareTogoToNext = () => {
+    const PrepareTogoToNextQuestion = () => {
         const milis = 650;
-        setTimeout(() => GoToNext(), milis);
+        setTimeout(() => GoToNextQuestion(), milis);
     };
     
-    const GoToNext = () => {
+    const GoToNextQuestion = () => {
         if (questionIndex >= questions.length -1 || questionIndex >= textData.questionIDs.length -1) {
-            handleLastQuestion();
-            return;
+            throw new Error("No more questions");
         }
 
         fightScene.setQuestionIndex(questionIndex + 1);

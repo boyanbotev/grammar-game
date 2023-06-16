@@ -5,7 +5,8 @@ export class Background extends Sprite {
         super();
 
         if (texture) this.texture = texture;
-        this.tint = '0x999999';
+        //this.tint = '0x999999';
+        this.tint = '0xCCCCCC';
 
         parent.addChild(this);
 

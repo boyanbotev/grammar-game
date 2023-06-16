@@ -47,5 +47,96 @@ export const questions: Question[] = [
                 correct: true,
             }
         ]
-    }
+    }, 
+    {
+        question: "Is blue blue?",
+        answers: [
+            {
+                content: "yes",
+                correct: true,
+            },
+            {
+                content: "no",
+                correct: false,
+            }
+        ]
+    },
+    {
+        question: "Is red red?",
+        answers: [
+            {
+                content: "yes",
+                correct: true,
+            },
+            {
+                content: "no",
+                correct: false,
+            }
+        ]
+    },
+    {
+        question: "Is orange orange?",
+        answers: [
+            {
+                content: "yes",
+                correct: true,
+            },
+            {
+                content: "no",
+                correct: false,
+            }
+        ]
+    },
+    {
+        question: "Is yellow yellow?",
+        answers: [
+            {
+                content: "yes",
+                correct: true,
+            },
+            {
+                content: "no",
+                correct: false,
+            }
+        ]
+    },
+    {
+        question: "Is grey grey?",
+        answers: [
+            {
+                content: "yes",
+                correct: true,
+            },
+            {
+                content: "no",
+                correct: false,
+            }
+        ]
+    },
+    {
+        question: "Is black black?",
+        answers: [
+            {
+                content: "yes",
+                correct: true,
+            },
+            {
+                content: "no",
+                correct: false,
+            }
+        ]
+    },
+    {
+        question: "Is black white?",
+        answers: [
+            {
+                content: "yes",
+                correct: false,
+            },
+            {
+                content: "no",
+                correct: true,
+            }
+        ]
+    },
 ];

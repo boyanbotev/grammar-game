@@ -7,17 +7,19 @@ import { Scene } from '../../pixi/pixi-scenes/Scene';
 import { CanvasSceneManager } from '../../pixi/CanvasSceneManager';
 import { BaseScene } from '../../pixi/pixi-scenes/baseScene';
 import { useGame } from '../../useGame';
+import { observer } from 'mobx-react-lite';
 
 export type CanvasProps = {
     canvasSceneData: CanvasSceneData,
 }
 
-const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
+const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const [sceneManager, setSceneManager] = useState<CanvasSceneManager | null>(null);
     const [app, setApp] = useState<Application | null>(null);
     const [scene, setScene] = useState<Scene>();
     const { game } = useGame();
+   //const sceneIndex = game.getSceneIndex();
 
     useEffect(() => {
         const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -37,7 +39,6 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
 
         });
         setApp(app);     
-        console.log("create Pixi Application");
 
         const manager = new CanvasSceneManager(app, onCanvasLoaded);
         setSceneManager(manager);
@@ -46,11 +47,11 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
     }, []);
 
     useEffect(() => {
+        // TODO: BEING CALLED TOO MANY TIMES
         changeScene();
     }, [app, canvasSceneData]);
 
     useEffect(() => {
-        console.log(canvasSceneData);
         if (scene){
             scene.update(canvasSceneData);
         }
@@ -72,6 +73,7 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
             return;
         }
 
+        // This is being called too often
         switch (canvasSceneData.sceneType) {
             case SceneType.fight:
                 const fightScene = new FightScene();
@@ -91,6 +93,6 @@ const PixiCanvas: React.FC<CanvasProps> = ({ canvasSceneData }) => {
     }
 
     return <canvas ref={canvasRef}/>;
-};
+});
 
 export default PixiCanvas;

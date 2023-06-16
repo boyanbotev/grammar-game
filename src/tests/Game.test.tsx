@@ -59,6 +59,7 @@ describe('Game', () => {
     expect(screen.getByText('fight')).toBeInTheDocument();
   });
 
+  // TESTS FIGHT SCENE INTEGRATION
   it('renders question', () => {
     renderGameWithMockedCanvas();
     expect(screen.getByTestId('question')).toBeInTheDocument();

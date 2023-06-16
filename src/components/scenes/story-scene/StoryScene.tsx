@@ -8,7 +8,6 @@ import { CanvasProps } from '../../canvas/PixiCanvas';
 import Question from '../../grammar-content/question/Question';
 
 type StorySceneProps = {
-    Canvas: React.FC<CanvasProps>;
     canvasData: CanvasSceneData;
     setCanvasData: (data: CanvasSceneData) => void;
 }

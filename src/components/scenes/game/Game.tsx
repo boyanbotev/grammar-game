@@ -29,14 +29,14 @@ const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }
             case SceneType.fight:
                 return (
                     <>
-                        <FightScene Canvas={CanvasComponent} canvasData={canvasData} setCanvasData={setCanvasData}/>
+                        <FightScene canvasData={canvasData} setCanvasData={setCanvasData}/>
                         <MenuButton />
                     </>
                 )
             case SceneType.story:
                 return (
                     <>
-                        <StoryScene Canvas={CanvasComponent} canvasData={canvasData} setCanvasData={setCanvasData}/>
+                        <StoryScene canvasData={canvasData} setCanvasData={setCanvasData}/>
                         <MenuButton />
                     </>
                 )
