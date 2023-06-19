@@ -2,7 +2,7 @@ import { Application } from "pixi.js";
 import { Scene } from "./pixi-scenes/Scene";
 import { PixiLoaderScene } from "./pixi-scenes/pixiLoaderScene";
 
-export class CanvasSceneManager {
+export class PixiCanvasSceneManager {
     private app: Application;
     private onCanvasLoaded;
     private currentScene: Scene | undefined | "initializing" = undefined;

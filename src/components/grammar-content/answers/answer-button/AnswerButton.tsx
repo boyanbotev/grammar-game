@@ -10,6 +10,7 @@ type AnswerProps = {
     handleIncorrectAnswer: () => void;
 }
 
+// rename?
 const AnswerButton: React.FC<AnswerProps> = ({ answer, handleCorrectAnswer, handleIncorrectAnswer }) => {
     const [ animation, setAnimation ] = useState<string>("");
     

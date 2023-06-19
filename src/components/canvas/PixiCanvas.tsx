@@ -1,10 +1,10 @@
 import { Application } from 'pixi.js';
 import { useRef, useEffect, useState } from 'react';
 
-import { PixiFightScene } from '../../pixi/pixi-scenes/PIXIfightScene';
+import { PixiFightScene } from '../../pixi/pixi-scenes/pixiFightScene';
 import { CanvasSceneData, SceneType, } from '../../common/types';
 import { Scene } from '../../pixi/pixi-scenes/Scene';
-import { CanvasSceneManager } from '../../pixi/CanvasSceneManager';
+import { PixiCanvasSceneManager } from '../../pixi/pixiCanvasSceneManager';
 import { PixiBaseScene } from '../../pixi/pixi-scenes/pixiBaseScene';
 import { useGame } from '../../useGame';
 import { observer } from 'mobx-react-lite';
@@ -16,7 +16,7 @@ export type CanvasProps = {
 
 const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const [sceneManager, setSceneManager] = useState<CanvasSceneManager | null>(null);
+    const [sceneManager, setSceneManager] = useState<PixiCanvasSceneManager | null>(null);
     const [app, setApp] = useState<Application | null>(null);
     const [scene, setScene] = useState<Scene>();
     const { game } = useGame();
@@ -41,7 +41,7 @@ const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
         });
         setApp(app);     
 
-        const manager = new CanvasSceneManager(app, onCanvasLoaded);
+        const manager = new PixiCanvasSceneManager(app, onCanvasLoaded);
         setSceneManager(manager);
         
         return () => app.destroy();
@@ -73,6 +73,7 @@ const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
             return;
         }
 
+        // Do this instead of using canvasSceneData.sceneType as that won't have updated yet
         const sceneType = scenesData[sceneIndex].canvasData.sceneType;
 
         switch (sceneType) {
