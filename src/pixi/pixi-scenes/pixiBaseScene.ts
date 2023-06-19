@@ -4,7 +4,7 @@ import { Background } from "../pixi-components/background";
 import { Scene } from "./Scene";
 import { CanvasSceneData } from "../../common/types";
 
-export class BaseScene extends Container implements Scene {
+export class PixiBaseScene extends Container implements Scene {
     private background: Background;
 
     constructor() {
@@ -17,7 +17,7 @@ export class BaseScene extends Container implements Scene {
     }
 
     async changeBackground(backgroundID: number): Promise<void>{
-
+        console.log("changeBackground, backgroundID: ", backgroundID);
         const backGroundsBundle = await Assets.loadBundle("backgroundsBundle");
 
         const backgroundTexture = backGroundsBundle[backgroundID];

@@ -31,8 +31,23 @@ const renderFightScene = () => {
 
 describe("FightScene", () => {
 
+    it("sets initial heart values correctly when the component mounts.", () => {
+        expect.assertions(1);
+
+        renderFightScene();
+    
+        // Assertions
+        // Check that the initial heart values are set correctly
+        expect(mockSetCanvasData).toHaveBeenCalledWith(canvasData);
+    });
+
+    it("setFightCanvasData function updates the canvas data correctly.", () => {
+        expect.assertions(1);
+    });
+
     it("restarts scene when player hearts are 0", () => {
         renderFightScene();
+        expect.assertions(1);
         // get question
 
         // trigger right answer
@@ -44,6 +59,18 @@ describe("FightScene", () => {
     });
 
     it("moves to next scene when enemy hearts are 0", () => {
-
+        expect.assertions(1);
     });
 });
+
+// c. Test that the checkGameConditions function correctly detects when the player loses and resets the scene.
+
+// d. Test that the checkGameConditions function correctly detects when the enemy loses and moves to the next scene.
+
+// e. Test that the goToNextScene function increments the scene index correctly.
+
+// f. Test that the resetScene function resets the heart values and question index correctly.
+
+// g. Test that the component renders the <GrammarContent /> component.
+
+// h. Test any other specific functionality or interactions present in the component.

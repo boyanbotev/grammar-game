@@ -1,13 +1,14 @@
 import { Application } from 'pixi.js';
 import { useRef, useEffect, useState } from 'react';
 
-import { FightScene } from '../../pixi/pixi-scenes/fightScene';
+import { PixiFightScene } from '../../pixi/pixi-scenes/PIXIfightScene';
 import { CanvasSceneData, SceneType, } from '../../common/types';
 import { Scene } from '../../pixi/pixi-scenes/Scene';
 import { CanvasSceneManager } from '../../pixi/CanvasSceneManager';
-import { BaseScene } from '../../pixi/pixi-scenes/baseScene';
+import { PixiBaseScene } from '../../pixi/pixi-scenes/pixiBaseScene';
 import { useGame } from '../../useGame';
 import { observer } from 'mobx-react-lite';
+import scenesData from '../../common/scenesData';
 
 export type CanvasProps = {
     canvasSceneData: CanvasSceneData,
@@ -19,7 +20,7 @@ const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
     const [app, setApp] = useState<Application | null>(null);
     const [scene, setScene] = useState<Scene>();
     const { game } = useGame();
-   //const sceneIndex = game.getSceneIndex();
+   const sceneIndex = game.getSceneIndex();
 
     useEffect(() => {
         const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -47,9 +48,8 @@ const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
     }, []);
 
     useEffect(() => {
-        // TODO: BEING CALLED TOO MANY TIMES
         changeScene();
-    }, [app, canvasSceneData]);
+    }, [app, sceneIndex]);
 
     useEffect(() => {
         if (scene){
@@ -73,15 +73,16 @@ const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
             return;
         }
 
-        // This is being called too often
-        switch (canvasSceneData.sceneType) {
+        const sceneType = scenesData[sceneIndex].canvasData.sceneType;
+
+        switch (sceneType) {
             case SceneType.fight:
-                const fightScene = new FightScene();
+                const fightScene = new PixiFightScene();
                 sceneManager.changeScene(fightScene);
                 setScene(fightScene);
                 break;
             case SceneType.story:
-                const storyScene = new BaseScene();
+                const storyScene = new PixiBaseScene();
                 sceneManager.changeScene(storyScene);
                 setScene(storyScene);
                 break;

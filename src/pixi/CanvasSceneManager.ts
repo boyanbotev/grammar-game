@@ -1,6 +1,6 @@
 import { Application } from "pixi.js";
 import { Scene } from "./pixi-scenes/Scene";
-import { LoaderScene } from "./pixi-scenes/loaderScene";
+import { PixiLoaderScene } from "./pixi-scenes/pixiLoaderScene";
 
 export class CanvasSceneManager {
     private app: Application;
@@ -16,7 +16,7 @@ export class CanvasSceneManager {
     }
 
     public async initialize(scene: Scene) {
-        const loaderScene = new LoaderScene();
+        const loaderScene = new PixiLoaderScene();
         this.changeScene(loaderScene);
         await loaderScene.loadAssets();
         this.changeScene(scene);

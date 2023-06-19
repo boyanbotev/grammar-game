@@ -3,7 +3,7 @@ import { CanvasSceneData } from "../../common/types";
 import { Container, Graphics, Assets } from "pixi.js";
 import { manifest } from "../../assets-loading/manifest";
 
-export class LoaderScene extends Container implements Scene {
+export class PixiLoaderScene extends Container implements Scene {
     private readonly loaderBar: Container;
     private readonly loaderBarBoder: Graphics;
     private readonly loaderBarFill: Graphics;

@@ -38,9 +38,7 @@ export class HeartContainer extends Container {
 
     public updateHeartCount(heartCount: number) {
         if (heartCount === this.heartCount) return;
-        else if (heartCount < this.heartCount) {
-            this.removeHearts(heartCount);
-        } else {
+        else {
             this.heartCount = heartCount;
             this.clearHearts();
             this.createHearts();
@@ -61,26 +59,5 @@ export class HeartContainer extends Container {
             this.hearts[i].destroy();
         }
         this.hearts = [];
-    }
-
-    // TODO: add flashing animation
-    public removeHearts(heartCount: number) {
-        this.heartCount = heartCount;
-        for (let i = this.heartCount; i >= 0; i--) {
-            const heart = this.hearts[i];
-
-            this.resetHeartPosition(i, heart);  
-
-            if (i === this.heartCount) {
-                heart.destroy();
-                this.hearts.pop();
-            }
-        }
-    }
-
-    private resetHeartPosition(index: number, heart: Heart) {
-        const heartPosition = this.calculateHeartPosition(index);
-        heart.x = heartPosition.x;
-        heart.y = heartPosition.y;
     }
 }

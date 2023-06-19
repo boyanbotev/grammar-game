@@ -1,9 +1,9 @@
 import { Scene } from "./Scene";
 import { HeartContainer } from "../pixi-components/heartContainer";
 import { CanvasSceneData, SceneType } from "../../common/types";
-import { BaseScene } from "./baseScene";
+import { PixiBaseScene } from "./pixiBaseScene";
 
-export class FightScene extends BaseScene implements Scene {
+export class PixiFightScene extends PixiBaseScene implements Scene {
     private playerHeartContainer: HeartContainer;
     private enemyHeartContainer: HeartContainer;
 
@@ -17,7 +17,7 @@ export class FightScene extends BaseScene implements Scene {
     }
 
     async update(canvasSceneData: CanvasSceneData): Promise<void> {
-
+        console.log("update", canvasSceneData);
         if (canvasSceneData.sceneType !== SceneType.fight) {
             return;
         }
