@@ -1,7 +1,7 @@
 import { observer } from'mobx-react-lite';
 
 import './GrammarContent.css';
-import Question from './question/Question';
+import TextContent from './text-content/TextContent';
 import GrammarItemContainer from './grammar-item-container/GrammarItemContainer';
 import { questions } from '../../common/consts';
 import Answers from './answers/Answers';
@@ -10,7 +10,7 @@ import scenesData from '../../common/scenesData';
 import { FightSceneTextData } from '../../common/types';
 
 const GrammarContent: React.FC = observer(() => {
-    const { fightScene, game } = useGame();
+    const { fightSceneStore: fightScene, gameStore: game } = useGame();
     const questionIndex = fightScene.getQuestionIndex();
     const textData = scenesData[game.getSceneIndex()].textData as FightSceneTextData;
 
@@ -36,14 +36,12 @@ const GrammarContent: React.FC = observer(() => {
         fightScene.setQuestionIndex(questionIndex + 1);
     };
 
-    // TODO: Win & lose game
-
     return (
         <div id="grammar">
             <GrammarItemContainer>
-                <Question>
+                <TextContent>
                     {questions[textData.questionIDs[questionIndex]].question}
-                </Question>
+                </TextContent>
             </GrammarItemContainer>
             <GrammarItemContainer>
                 <Answers 

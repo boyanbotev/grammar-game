@@ -1,12 +1,15 @@
 import { FightSceneStore } from "./FightSceneStore";
 import { GameStore } from "./GameStore";
+import { StorySceneStore } from "./StorySceneStore";
 
 export class RootStore {
-    game: GameStore;
-    fightScene: FightSceneStore;
+    gameStore: GameStore;
+    fightSceneStore: FightSceneStore;
+    storySceneStore: StorySceneStore;
 
     constructor() {
-        this.game = new GameStore();
-        this.fightScene = new FightSceneStore();
+        this.gameStore = new GameStore();
+        this.fightSceneStore = new FightSceneStore();
+        this.storySceneStore = new StorySceneStore();
     }
 }

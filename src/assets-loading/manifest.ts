@@ -8,6 +8,7 @@ export const manifest: ResolverManifest = {
                 0: 'src/assets/images/fight-bear-wide.png',
                 1: 'src/assets/images/fight-bear-lake.jpg',
                 2: 'src/assets/images/owl.jpg',
+                3: 'src/assets/images/romans-in-distance.jpg',
             }
         },
         {

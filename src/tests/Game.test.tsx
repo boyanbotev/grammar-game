@@ -9,7 +9,7 @@ import { RootStoreContext, useGame } from '../useGame';
 const rootStore = new RootStore();
 
 const mockCanvasComponent: React.FC<CanvasProps> = ({ canvasSceneData }) => {
-  const { game } = useGame();
+  const { gameStore: game } = useGame();
   game.setCanvasLoaded(true);
 
   return (
@@ -21,7 +21,7 @@ const mockCanvasComponent: React.FC<CanvasProps> = ({ canvasSceneData }) => {
 }
 
 const nonLoadingMockCanvasComponent: React.FC<CanvasProps> = ({ canvasSceneData }) => {
-  const { game } = useGame();
+  const { gameStore: game } = useGame();
   game.setCanvasLoaded(false);
 
   return (

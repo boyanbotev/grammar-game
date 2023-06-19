@@ -19,8 +19,8 @@ const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
     const [sceneManager, setSceneManager] = useState<PixiCanvasSceneManager | null>(null);
     const [app, setApp] = useState<Application | null>(null);
     const [scene, setScene] = useState<Scene>();
-    const { game } = useGame();
-   const sceneIndex = game.getSceneIndex();
+    const { gameStore } = useGame();
+   const sceneIndex = gameStore.getSceneIndex();
 
     useEffect(() => {
         const screenWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
@@ -51,8 +51,10 @@ const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
         changeScene();
     }, [app, sceneIndex]);
 
+    // TODO: canvas scene data is not chanmging when go from one story scene to the next - backgroundID is not updating
     useEffect(() => {
         if (scene){
+            console.log(canvasSceneData);
             scene.update(canvasSceneData);
         }
     }, [scene, canvasSceneData]);
@@ -75,6 +77,7 @@ const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
 
         // Do this instead of using canvasSceneData.sceneType as that won't have updated yet
         const sceneType = scenesData[sceneIndex].canvasData.sceneType;
+        // However, this means that the scene is created with the wrong canvasData
 
         switch (sceneType) {
             case SceneType.fight:
@@ -91,7 +94,7 @@ const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
     }
 
     const onCanvasLoaded = () => {
-        game.setCanvasLoaded(true);
+        gameStore.setCanvasLoaded(true);
     }
 
     return <canvas ref={canvasRef}/>;

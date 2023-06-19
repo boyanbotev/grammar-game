@@ -26,8 +26,20 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "Aurora had a special gift. She could see colours whenever she heard sounds. Even though she couldn't see with her eyes, her world was filled with beautiful colours that danced around her.",
-                "GGGGGGGGGGGGGG"
+                "Aurora had a special gift. She could see colours whenever she heard sounds.",
+                "Even though she couldn't see with her eyes, her world was filled with beautiful colours that danced around her."
+            ]
+        }
+    },
+    {
+        canvasData: {
+            sceneType: SceneType.story,
+            backGroundImageID: 3,
+        },
+        textData: {
+            storyText: [
+                "ss",
+                "ssg"
             ]
         }
     }

@@ -15,14 +15,15 @@ type GameProps = {
 }
 
 const Game: React.FC<GameProps> = observer(({ canvasComponent: CanvasComponent }) => {
-    const { game } = useGame();
+    const { gameStore: game } = useGame();
     const [canvasData, setCanvasData] = useState<CanvasSceneData>(scenesData[game.getSceneIndex()].canvasData);
     const sceneType = scenesData[game.getSceneIndex()].canvasData.sceneType;
+    const sceneIndex = scenesData[game.getSceneIndex()];
     const isLoaded = game.getCanvasLoaded();
 
     useEffect(() => {
         setCanvasData(scenesData[game.getSceneIndex()].canvasData);
-    }, [sceneType]);
+    }, [sceneIndex]);
 
     const chooseScene = () => {
         switch(sceneType) {

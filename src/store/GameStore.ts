@@ -1,10 +1,8 @@
 import { makeAutoObservable } from "mobx";
 
 export class GameStore {
-    sceneIndex: number = 0;
+    sceneIndex: number = 1;
     private isCanvasLoaded: boolean = false;
-
-    // TODO: different store for Story?
     
     constructor() {
         makeAutoObservable(this, {}, { autoBind: true });

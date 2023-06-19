@@ -1,11 +1,12 @@
 import { observer } from 'mobx-react-lite';
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import { CanvasSceneData, StorySceneTextData } from '../../../common/types';
 import { useGame } from '../../../useGame';
 import scenesData from '../../../common/scenesData';
-import { CanvasProps } from '../../canvas/PixiCanvas';
-import Question from '../../grammar-content/question/Question';
+import TextContent from '../../grammar-content/text-content/TextContent';
+import Button from '../../grammar-content/button/Button';
+import GrammarItemContainer from '../../grammar-content/grammar-item-container/GrammarItemContainer';
 
 type StorySceneProps = {
     canvasData: CanvasSceneData;
@@ -13,17 +14,39 @@ type StorySceneProps = {
 }
 
 const StoryScene: React.FC<StorySceneProps> = observer(({ }) => {
-    const { game } = useGame();
+    const { gameStore: game, storySceneStore } = useGame();
     const textData = scenesData[game.getSceneIndex()].textData as StorySceneTextData;
-    const magicIndex = 0;
+
+    const gotToNextSlide = () => {
+        console.log("next slide");
+        if (storySceneStore.getBackgroundIndex() >= textData.storyText.length -1) {
+            goToNextScene();
+            return;
+        }
+        storySceneStore.incrementBackgroundIndex();
+    }
+
+    const goToNextScene  = () => {
+        storySceneStore.setBackgroundIndex(0);
+        game.incrementSceneIndex();
+    };
+
+    console.log("render story scene");
 
     return (
         <div id="UIlayer">
-                <Question>
-                    {textData.storyText[magicIndex]}
-                </Question>
+            <TextContent>
+                {textData.storyText[storySceneStore.getBackgroundIndex()]}
+            </TextContent>
+            <GrammarItemContainer>
+                <Button onClick={gotToNextSlide}>
+                    next
+                </Button>
+            </GrammarItemContainer>
         </div>  
     )
 });
 
 export default StoryScene;
+
+// TODO: changescene is not instigating scene with the right data

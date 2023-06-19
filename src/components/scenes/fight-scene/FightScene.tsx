@@ -12,7 +12,7 @@ type FightSceneProps = {
 }
 
 const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasData }) => {
-    const { fightScene: fightSceneStore, game } = useGame();
+    const { fightSceneStore, gameStore } = useGame();
     const playerHearts  = fightSceneStore.getPlayerHearts();
     const enemyHearts = fightSceneStore.getEnemyHearts();
     const [isGameStarted, setIsGameStarted] = useState(false);
@@ -22,7 +22,7 @@ const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasD
     }, []);
 
     const setInitialHeartValues = () => {
-        const data = scenesData[game.getSceneIndex()].canvasData as FightSceneCanvasData;
+        const data = scenesData[gameStore.getSceneIndex()].canvasData as FightSceneCanvasData;
         fightSceneStore.setPlayerHearts(data.playerHearts.number);
         fightSceneStore.setEnemyHearts(data.opponentHearts.number);
 
@@ -61,7 +61,7 @@ const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasD
     };
 
     const goToNextScene = () => {
-        game.incrementSceneIndex();
+        gameStore.incrementSceneIndex();
     }
 
     // TODO: Lose Screen

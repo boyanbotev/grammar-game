@@ -1,12 +1,11 @@
 import React from "react";
-import './Question.css';
+import './TextContent.css';
 
 type QuestionProps ={
     children?: React.ReactNode,
 }
 
-// rename?
-const Question: React.FC<QuestionProps> = ({ children }) => {
+const TextContent: React.FC<QuestionProps> = ({ children }) => {
     return (
         <div className="question" data-testid="question">
             <p> 
@@ -16,4 +15,4 @@ const Question: React.FC<QuestionProps> = ({ children }) => {
     )
 }
 
-export default Question;
+export default TextContent;
