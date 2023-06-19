@@ -37,7 +37,7 @@ const GrammarContent: React.FC = observer(() => {
     };
 
     return (
-        <div id="grammar">
+        <>
             <GrammarItemContainer>
                 <TextContent>
                     {questions[textData.questionIDs[questionIndex]].question}
@@ -50,7 +50,7 @@ const GrammarContent: React.FC = observer(() => {
                     handleIncorrectAnswer={handleIncorrectAnswer}
                 />
             </GrammarItemContainer>
-        </div>
+        </>
     )
 });
 

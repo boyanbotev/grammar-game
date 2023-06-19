@@ -35,9 +35,11 @@ const StoryScene: React.FC<StorySceneProps> = observer(({ }) => {
 
     return (
         <div id="UIlayer">
-            <TextContent>
-                {textData.storyText[storySceneStore.getBackgroundIndex()]}
-            </TextContent>
+            <GrammarItemContainer>
+                <TextContent>
+                    {textData.storyText[storySceneStore.getBackgroundIndex()]}
+                </TextContent>
+            </GrammarItemContainer>
             <GrammarItemContainer>
                 <Button onClick={gotToNextSlide}>
                     next

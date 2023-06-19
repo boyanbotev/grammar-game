@@ -51,7 +51,6 @@ const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
         changeScene();
     }, [app, sceneIndex]);
 
-    // TODO: canvas scene data is not chanmging when go from one story scene to the next - backgroundID is not updating
     useEffect(() => {
         if (scene){
             console.log(canvasSceneData);
@@ -77,7 +76,6 @@ const PixiCanvas: React.FC<CanvasProps> = observer(({ canvasSceneData }) => {
 
         // Do this instead of using canvasSceneData.sceneType as that won't have updated yet
         const sceneType = scenesData[sceneIndex].canvasData.sceneType;
-        // However, this means that the scene is created with the wrong canvasData
 
         switch (sceneType) {
             case SceneType.fight:

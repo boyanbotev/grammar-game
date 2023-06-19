@@ -38,7 +38,7 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "ss",
+                "ssrewrewrewrewrwerwe",
                 "ssg"
             ]
         }
