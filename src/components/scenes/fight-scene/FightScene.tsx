@@ -5,6 +5,7 @@ import { CanvasSceneData, FightSceneCanvasData } from '../../../common/types';
 import { useGame } from '../../../useGame';
 import scenesData from '../../../common/scenesData';
 import GrammarContent from '../../grammar-content/GrammarContent';
+import config from '../../../common/config';
 
 type FightSceneProps = {
     canvasData: CanvasSceneData;
@@ -19,6 +20,7 @@ const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasD
 
     useEffect(() => {
         setInitialHeartValues();
+        fightSceneStore.setQuestionIndex(0);
     }, []);
 
     const setInitialHeartValues = () => {
@@ -56,11 +58,16 @@ const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasD
 
         if (enemyHearts === 0 && isGameStarted) {
             console.log("WIN");
-            goToNextScene();
+            prepareToGoToNextScene();
         }
     };
 
+    const prepareToGoToNextScene = () => {
+        setTimeout(() => goToNextScene(), config.uiResponseMillis);
+    }
+
     const goToNextScene = () => {
+        console.log("GO TO NEXT");
         gameStore.incrementSceneIndex();
     }
 

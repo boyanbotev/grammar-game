@@ -1,3 +1,5 @@
-export const config = {
+const config = {
     uiResponseMillis: 650,
 }
+
+export default config;

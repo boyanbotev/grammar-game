@@ -3,16 +3,19 @@ import { observer } from'mobx-react-lite';
 import './GrammarContent.css';
 import TextContent from './text-content/TextContent';
 import GrammarItemContainer from './grammar-item-container/GrammarItemContainer';
-import { questions } from '../../common/consts';
+import { questions } from '../../common/questions';
 import Answers from './answers/Answers';
 import { useGame } from '../../useGame';
 import scenesData from '../../common/scenesData';
 import { FightSceneTextData } from '../../common/types';
+import config from '../../common/config';
 
 const GrammarContent: React.FC = observer(() => {
     const { fightSceneStore: fightScene, gameStore: game } = useGame();
     const questionIndex = fightScene.getQuestionIndex();
     const textData = scenesData[game.getSceneIndex()].textData as FightSceneTextData;
+    
+    const question = questions[textData.questionIDs[questionIndex]];
 
     const handleCorrectAnswer = () => {
         PrepareTogoToNextQuestion();
@@ -24,8 +27,7 @@ const GrammarContent: React.FC = observer(() => {
     }
 
     const PrepareTogoToNextQuestion = () => {
-        const milis = 650;
-        setTimeout(() => GoToNextQuestion(), milis);
+        setTimeout(() => GoToNextQuestion(), config.uiResponseMillis);
     };
     
     const GoToNextQuestion = () => {
@@ -40,12 +42,12 @@ const GrammarContent: React.FC = observer(() => {
         <>
             <GrammarItemContainer>
                 <TextContent>
-                    {questions[textData.questionIDs[questionIndex]].question}
+                    {question.question}
                 </TextContent>
             </GrammarItemContainer>
             <GrammarItemContainer>
                 <Answers 
-                    answers={questions[questionIndex].answers}
+                    answers={question.answers}
                     handleCorrectAnswer={handleCorrectAnswer}
                     handleIncorrectAnswer={handleIncorrectAnswer}
                 />

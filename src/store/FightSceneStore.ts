@@ -10,6 +10,7 @@ export class FightSceneStore {
     }
 
     public setQuestionIndex(index: number): void {
+        console.log("setQuestionIndex: ", index);
         this.questionIndex = index;
     }
 

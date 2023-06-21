@@ -1,22 +1,22 @@
 import { makeAutoObservable } from "mobx";
 
 export class StorySceneStore {
-    private backgroundIndex: number = 0;
+    private textIndex: number = 0;
 
     constructor() {
         makeAutoObservable(this, {}, {autoBind: true});
     }
 
     public setBackgroundIndex(index: number): void {
-        console.log(this.backgroundIndex);
-        this.backgroundIndex = index;
+        console.log(this.textIndex);
+        this.textIndex = index;
     }
 
     public getBackgroundIndex(): number {
-        return this.backgroundIndex;
+        return this.textIndex;
     }
 
     public incrementBackgroundIndex(): void {
-        this.backgroundIndex++;
+        this.textIndex++;
     }
 }
