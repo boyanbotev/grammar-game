@@ -1,4 +1,5 @@
 import { Sprite, Assets } from "pixi.js";
+import gsap from 'gsap';
 
 import { Vector2 } from "../../common/Vector2";
 
@@ -21,8 +22,12 @@ export class Heart extends Sprite {
     async asyncConstructor() {
         const uiBundle = await Assets.loadBundle("uiBundle");
         this.texture = uiBundle["heart"];
-        //this.tint = 0xff8888;
         this.tint = 0xff5500;
-        // this.tint = 0xffeeee;
+    }
+
+    public pulse() {
+        const tl = gsap.timeline();
+        tl.to(this,{alpha: 0, duration: 0.1,});
+        tl.to(this,{alpha: 1, duration: 0.1,});
     }
 }

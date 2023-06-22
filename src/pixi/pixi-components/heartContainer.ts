@@ -42,6 +42,7 @@ export class HeartContainer extends Container {
             this.heartCount = heartCount;
             this.clearHearts();
             this.createHearts();
+            this.animateUpdateHearts();
         }
     }
 
@@ -59,5 +60,11 @@ export class HeartContainer extends Container {
             this.hearts[i].destroy();
         }
         this.hearts = [];
+    }
+
+    animateUpdateHearts() {
+        this.hearts.forEach((heart) => {
+            heart.pulse();
+        });
     }
 }
