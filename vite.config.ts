@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react'
-// import path from 'path';
+import path from 'path';
 
 //const isProduction = process.argv.includes('production');
 
@@ -17,11 +17,17 @@ export default defineConfig({
   // },
 
   // WHY DOESN'T THIS WORK????
-  // resolve: {
-  //   alias: {
-  //     '@assets': path.resolve(__dirname, 'src/assets'),
-  //   }
-  // }
+  resolve: {
+    alias: {
+      '@assets': path.resolve(__dirname, 'src/assets/'),
+    }
+  }
 
 
 });
+
+// TODO: resolve assets folder,
+
+// TODO: Get vite to understand which images need to be included in build
+
+// TODO: get vite to change links in production mode
