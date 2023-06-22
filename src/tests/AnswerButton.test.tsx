@@ -3,7 +3,7 @@ import { render, fireEvent, act, screen } from "@testing-library/react";
 
 import AnswerButton from "../components/grammar-content/answers/answer-button/AnswerButton";
 import { Answer } from "../common/types";
-import { config } from "../common/config";
+import config  from "../common/config";
 
 describe("AnswerButton", () => {
     vi.useFakeTimers();

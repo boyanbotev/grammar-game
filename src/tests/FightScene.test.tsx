@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from "vitest";
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
 import FightScene from "../components/scenes/fight-scene/FightScene";
 import { RootStore } from "../store/RootStore";

@@ -1,4 +1,6 @@
 import './App.css';
+import '@fontsource/andika/400.css';
+import '@fontsource/andika/700.css';
 import PixiCanvas from './components/canvas/PixiCanvas';
 import Game from './components/scenes/game/Game';
 import { RootStore } from './store/RootStore';

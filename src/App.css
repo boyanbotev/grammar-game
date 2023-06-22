@@ -10,6 +10,8 @@
   --light-grey: rgb(200, 200, 200);
   --ui-yellow-darker:hsl(49, 30%, 68%); 
   --ui-yellow: 	hsl(49, 100%, 89%); 
+
+  font-family: 'Andika', sans-serif;
 }
 
 @media only screen and (min-height:400px) {

@@ -42,7 +42,7 @@ const AnswerButton: React.FC<AnswerProps> = ({ answer, handleCorrectAnswer, hand
 
     return (
         <Button onClick={handleButtonPressed} className={animation}>
-            {answer.content}
+            <b>{answer.content}</b>
         </Button>
     )
 }

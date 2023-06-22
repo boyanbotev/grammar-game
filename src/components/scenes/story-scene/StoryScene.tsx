@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React, {useEffect} from 'react';
+import React from 'react';
 
 import { CanvasSceneData, StorySceneTextData } from '../../../common/types';
 import { useGame } from '../../../useGame';

@@ -1,5 +1,4 @@
 import { Scene } from "./Scene";
-import { CanvasSceneData } from "../../common/types";
 import { Container, Graphics, Assets } from "pixi.js";
 import { manifest } from "../../assets-loading/manifest";
 
@@ -47,6 +46,6 @@ export class PixiLoaderScene extends Container implements Scene {
         this.loaderBarFill.scale.x = progress;
     }
 
-    public update(canvasSceneData: CanvasSceneData): void {
+    public update(): void {
     }
 }
