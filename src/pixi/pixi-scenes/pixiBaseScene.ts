@@ -34,10 +34,4 @@ export class PixiBaseScene extends Container implements Scene {
         this.alpha = 0;
         gsap.to(this, { alpha: 1, duration: config.fadeTimeMillis/1000});
     }
-
-    public fadeOut(): void {
-        console.log("fadeOut");
-        this.alpha = 1;
-        gsap.to(this, { alpha: 0, duration: config.fadeTimeMillis/1000});
-    };
 }

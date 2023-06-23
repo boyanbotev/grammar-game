@@ -18,6 +18,8 @@ export class PixiCanvasSceneManager {
     }
 
     public async initialize(scene: Scene) {
+        this.currentScene = "initializing";
+
         const loaderScene = new PixiLoaderScene();
         this.changeScene(loaderScene);
         await loaderScene.loadAssets();
@@ -28,36 +30,33 @@ export class PixiCanvasSceneManager {
 
     public changeScene(newScene: Scene): void {
         console.log("change Scene", newScene);
+
         if (this.currentScene === undefined) {
-            this.currentScene = "initializing";
             this.initialize(newScene);
             return;
         }
 
-        this.removeSceneAfterMillis(config.fadeTimeMillis);
+        this.removeSceneAfterWaiting(this.currentScene);
         this.stageScene(newScene);
 
         this.currentScene = newScene;
-
-        this.currentScene.fadeIn();
     }
 
-    private removeSceneAfterMillis(millis: number): void {
-        const sceneToDestroy = this.currentScene;
+    private removeSceneAfterWaiting(sceneToDestroy: Scene | "initializing"): void {
         setTimeout(() => {
             this.removeScene(sceneToDestroy);
-        }, millis);
+        }, config.fadeTimeMillis);
     }
 
     public removeScene(scene: Scene | undefined | "initializing"): void {
         if(scene && scene !== "initializing") {
             this.app.stage.removeChild(scene);
-            console.log("destroy old scene");
             scene.destroy();
         }
     };
 
     public stageScene(scene: Scene): void {
         this.app.stage.addChild(scene);
+        scene.fadeIn();
     };
 }

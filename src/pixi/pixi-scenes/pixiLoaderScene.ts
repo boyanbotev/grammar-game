@@ -51,7 +51,4 @@ export class PixiLoaderScene extends Container implements Scene {
 
     public fadeIn(): void {     
     }
-
-    public fadeOut(): void {
-    }
 }
