@@ -12,6 +12,8 @@ export class PixiBaseScene extends Container implements Scene {
     constructor() {
         super();
         this.background = new Background(null, this);
+
+        this.fadeIn();
     }
 
     async update(canvasSceneData: CanvasSceneData): Promise<void> {  
@@ -29,7 +31,7 @@ export class PixiBaseScene extends Container implements Scene {
         }
     };
 
-    public fadeIn(): void {
+    private fadeIn(): void {
         console.log("fadeIn");
         this.alpha = 0;
         gsap.to(this, { alpha: 1, duration: config.fadeTimeMillis/1000});

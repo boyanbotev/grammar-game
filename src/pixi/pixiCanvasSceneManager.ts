@@ -57,6 +57,5 @@ export class PixiCanvasSceneManager {
 
     public stageScene(scene: Scene): void {
         this.app.stage.addChild(scene);
-        scene.fadeIn();
     };
 }
