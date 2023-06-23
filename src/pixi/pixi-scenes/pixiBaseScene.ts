@@ -1,8 +1,10 @@
 import { Assets, Container } from "pixi.js";
+import { gsap } from "gsap";
 
 import { Background } from "../pixi-components/background";
 import { Scene } from "./Scene";
 import { CanvasSceneData } from "../../common/types";
+import config from "../../common/config";
 
 export class PixiBaseScene extends Container implements Scene {
     private background: Background;
@@ -25,5 +27,17 @@ export class PixiBaseScene extends Container implements Scene {
         if (this.background.texture !== backgroundTexture){
             this.background.texture = backgroundTexture;
         }
+    };
+
+    public fadeIn(): void {
+        console.log("fadeIn");
+        this.alpha = 0;
+        gsap.to(this, { alpha: 1, duration: config.fadeTimeMillis/1000});
+    }
+
+    public fadeOut(): void {
+        console.log("fadeOut");
+        this.alpha = 1;
+        gsap.to(this, { alpha: 0, duration: config.fadeTimeMillis/1000});
     };
 }
