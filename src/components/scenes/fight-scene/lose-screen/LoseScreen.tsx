@@ -1,5 +1,5 @@
 import Button from "../../../grammar-content/button/Button";
-import GrammarItemContainer from "../../../grammar-content/grammar-item-container/GrammarItemContainer";
+import ItemContainer from "../../../grammar-content/grammar-item-container/ItemContainer";
 import TextContent from "../../../grammar-content/text-content/TextContent";
 
 const manifestBaseURL = import.meta.env.BASE_URL;
@@ -12,12 +12,12 @@ const LoseScreen: React.FC <LoseScreenProps>= ({ resetScene }) => {
     return (
         <>
             <img src={`${manifestBaseURL}lose-screen-1.jpg`}/>
-            <GrammarItemContainer>
+            <ItemContainer>
                 <TextContent>YOU LOST!</TextContent>
-            </GrammarItemContainer>
-            <GrammarItemContainer>
+            </ItemContainer>
+            <ItemContainer>
                 <Button onClick={resetScene}>try again</Button>
-            </GrammarItemContainer>
+            </ItemContainer>
         </>
     )
 }

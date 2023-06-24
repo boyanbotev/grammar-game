@@ -2,7 +2,7 @@ import { observer } from'mobx-react-lite';
 
 import './GrammarContent.css';
 import TextContent from './text-content/TextContent';
-import GrammarItemContainer from './grammar-item-container/GrammarItemContainer';
+import ItemContainer from './grammar-item-container/ItemContainer';
 import { questions } from '../../common/questions';
 import Answers from './answers/Answers';
 import { useGame } from '../../useGame';
@@ -40,18 +40,18 @@ const GrammarContent: React.FC = observer(() => {
 
     return (
         <>
-            <GrammarItemContainer>
+            <ItemContainer>
                 <TextContent>
                     {question.question}
                 </TextContent>
-            </GrammarItemContainer>
-            <GrammarItemContainer>
+            </ItemContainer>
+            <ItemContainer>
                 <Answers 
                     answers={question.answers}
                     handleCorrectAnswer={handleCorrectAnswer}
                     handleIncorrectAnswer={handleIncorrectAnswer}
                 />
-            </GrammarItemContainer>
+            </ItemContainer>
         </>
     )
 });

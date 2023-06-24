@@ -6,7 +6,7 @@ import { useGame } from '../../../useGame';
 import scenesData from '../../../common/scenesData';
 import TextContent from '../../grammar-content/text-content/TextContent';
 import Button from '../../grammar-content/button/Button';
-import GrammarItemContainer from '../../grammar-content/grammar-item-container/GrammarItemContainer';
+import ItemContainer from '../../grammar-content/grammar-item-container/ItemContainer';
 
 type StorySceneProps = {
     canvasData: CanvasSceneData;
@@ -35,16 +35,16 @@ const StoryScene: React.FC<StorySceneProps> = observer(({ }) => {
 
     return (
         <div className="UIlayer">
-            <GrammarItemContainer>
+            <ItemContainer>
                 <TextContent>
                     {textData.storyText[storySceneStore.getBackgroundIndex()]}
                 </TextContent>
-            </GrammarItemContainer>
-            <GrammarItemContainer>
+            </ItemContainer>
+            <ItemContainer>
                 <Button onClick={goToNextSlide}>
                     next
                 </Button>
-            </GrammarItemContainer>
+            </ItemContainer>
         </div>  
     )
 });

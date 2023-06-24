@@ -1,17 +1,17 @@
-.grammar-item-container {
+.item-container {
     display: flex;
     justify-content: center;
     gap: 5vw;
     margin-bottom: 1vh;
 }
 
-.grammar-item-container > button {
+.item-container > button {
     flex: 0.25 1 0px;
 }
 
 /* special check for tiny screens */
 @media screen and (max-width: 320px) {
-    .grammar-item-container {
+    .item-container {
         gap: 5vw;
     }
 }
