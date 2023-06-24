@@ -1,11 +1,14 @@
 import { observer } from 'mobx-react-lite';
 import React, { useEffect, useState } from 'react';
 
-import { CanvasSceneData, FightSceneCanvasData } from '../../../common/types';
+import './FightScene.css';
+import { CanvasSceneData, FightSceneCanvasData, FightSceneState } from '../../../common/types';
 import { useGame } from '../../../useGame';
 import scenesData from '../../../common/scenesData';
 import GrammarContent from '../../grammar-content/GrammarContent';
 import config from '../../../common/config';
+import LoseScreen from './lose-screen/LoseScreen';
+import WinScreen from './win-screen/WinScreen';
 
 type FightSceneProps = {
     canvasData: CanvasSceneData;
@@ -18,7 +21,9 @@ const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasD
     const { fightSceneStore, gameStore } = useGame();
     const playerHearts  = fightSceneStore.getPlayerHearts();
     const enemyHearts = fightSceneStore.getEnemyHearts();
-    const [isGameStarted, setIsGameStarted] = useState(false);
+
+    const currentState = fightSceneStore.getCurrentState();
+    const isGameStarted = currentState !== FightSceneState.initializing;
 
     useEffect(() => {
         setInitialHeartValues();
@@ -30,7 +35,7 @@ const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasD
         fightSceneStore.setPlayerHearts(data.playerHearts.number);
         fightSceneStore.setEnemyHearts(data.opponentHearts.number);
 
-        setIsGameStarted(true);
+        fightSceneStore.setCurrentState(FightSceneState.playing);
     }
 
     useEffect(() => {
@@ -53,25 +58,22 @@ const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasD
     }
 
     const checkGameConditions = () => {
-        // TODO: Lose Screen
+
         if (playerHearts === 0 && isGameStarted) {
-            resetScene();
-            console.log("LOSE");
+            fightSceneStore.setCurrentState(FightSceneState.lost);
         }
 
-         // TODO: Win Screen
         if (enemyHearts === 0 && isGameStarted) {
-            console.log("WIN");
-            prepareToGoToNextScene();
+            fightSceneStore.setCurrentState(FightSceneState.won);
         }
     };
 
-    const prepareToGoToNextScene = () => {
+    const goToNextSceneAfterWaiting = () => {
         setTimeout(() => goToNextScene(), config.uiResponseMillis);
     }
 
     const goToNextScene = () => {
-        console.log("GO TO NEXT");
+        fightSceneStore.setCurrentState(FightSceneState.initializing)
         gameStore.incrementSceneIndex();
     }
 
@@ -80,11 +82,26 @@ const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasD
         fightSceneStore.setQuestionIndex(0);
     }
 
-    return (
-        <div id="UIlayer">
-            <GrammarContent/>
-        </div>  
-    )
+    switch(currentState) {
+        case FightSceneState.won:
+            return (
+                <div className="UIlayer">
+                    <WinScreen goToNext={goToNextSceneAfterWaiting}/>
+                </div>  
+            )
+        case FightSceneState.lost:
+            return ( 
+                <div className="UIlayer">
+                    <LoseScreen resetScene={resetScene}/>
+                </div>  
+            )
+        default:
+            return (
+                <div className="UIlayer">
+                    <GrammarContent/>
+                </div>  
+            )
+    }
 });
 
 export default FightScene;

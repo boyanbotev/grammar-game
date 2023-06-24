@@ -1,4 +1,4 @@
-import { Vector2 } from "./Vector2";
+import { Vector2 } from "./vector2";
 import { SceneData, SceneType } from "./types";
 
 const scenesData: SceneData[] = [
@@ -289,7 +289,7 @@ const scenesData: SceneData[] = [
     {    
         canvasData: {
             sceneType: SceneType.story,
-            backGroundImageID: 21,
+            backGroundImageID: 20,
         },
         textData: {
             storyText: [

@@ -1,4 +1,4 @@
-import { Vector2 } from './Vector2';
+import { Vector2 } from './vector2';
 
 export enum SceneType {
     "home" = "home",
@@ -7,6 +7,13 @@ export enum SceneType {
     "learning" = "learning",
     "fight" = "fight",
     "challenge" = "challenge"
+}
+
+export enum FightSceneState {
+    "initializing" = "initializing",
+    "playing" = "playing",
+    "won" = "won",
+    "lost" = "lost",
 }
 
 export type SceneData = FightSceneData | StorySceneData;

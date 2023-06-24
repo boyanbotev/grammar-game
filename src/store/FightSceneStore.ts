@@ -1,9 +1,11 @@
 import { makeAutoObservable } from "mobx";
+import { FightSceneState } from "../common/types";
 
 export class FightSceneStore {
     private questionIndex: number = 0;
     private playerHearts: number = 0;
     private enemyHearts: number = 0;
+    private currentState: FightSceneState = FightSceneState.initializing;
 
     constructor() {
         makeAutoObservable(this, {}, {autoBind: true});
@@ -20,6 +22,10 @@ export class FightSceneStore {
 
     public setEnemyHearts(hearts: number): void {
         this.enemyHearts = hearts;
+    }
+
+    public setCurrentState(state: FightSceneState): void {
+        this.currentState = state;
     }
 
     public deincrementPlayerHearts() {
@@ -42,5 +48,9 @@ export class FightSceneStore {
 
     public getQuestionIndex(): number {
         return this.questionIndex;
+    }
+
+    public getCurrentState(): FightSceneState {
+        return this.currentState;
     }
 }

@@ -17,7 +17,7 @@ const StoryScene: React.FC<StorySceneProps> = observer(({ }) => {
     const { gameStore: game, storySceneStore } = useGame();
     const textData = scenesData[game.getSceneIndex()].textData as StorySceneTextData;
 
-    const gotToNextSlide = () => {
+    const goToNextSlide = () => {
         console.log("next slide");
         if (storySceneStore.getBackgroundIndex() >= textData.storyText.length -1) {
             goToNextScene();
@@ -34,14 +34,14 @@ const StoryScene: React.FC<StorySceneProps> = observer(({ }) => {
     console.log("render story scene");
 
     return (
-        <div id="UIlayer">
+        <div className="UIlayer">
             <GrammarItemContainer>
                 <TextContent>
                     {textData.storyText[storySceneStore.getBackgroundIndex()]}
                 </TextContent>
             </GrammarItemContainer>
             <GrammarItemContainer>
-                <Button onClick={gotToNextSlide}>
+                <Button onClick={goToNextSlide}>
                     next
                 </Button>
             </GrammarItemContainer>

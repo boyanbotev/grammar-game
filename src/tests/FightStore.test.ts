@@ -33,7 +33,7 @@ describe("GameStore", () => {
         expect(fightSceneStore.getEnemyHearts()).toBe(2);
     });
 
-    it ("does not deincrement hearts below 0", () => {
+    it ("does not deincrement player hearts below 0", () => {
         const fightSceneStore = new FightSceneStore();
         fightSceneStore.setPlayerHearts(-1);
         expect(() => fightSceneStore.deincrementPlayerHearts()).toThrowError();

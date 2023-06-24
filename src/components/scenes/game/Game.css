@@ -1,4 +1,4 @@
-#UIlayer {
+.UIlayer {
     position: absolute;
     top: 0;
     left: 50%;
@@ -16,30 +16,37 @@
     /* default Portrait phone */
 }
 
+.image-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
 /* Landscape phone */
 @media screen and (min-width: 540px){
-    #UIlayer {
+    .UIlayer {
         width: calc(100vw - 100vh);
     }
 }
 
 /* for iPad landscape*/
 @media screen and (min-height: 540px) and (min-width: 540px) {
-    #UIlayer {
+    .UIlayer {
         width: calc(100vw - 100vh/2);
     }
 }
 
 /* iPad portrait */
 @media screen and (min-height: 1000px) and (min-width: 540px) {
-    #UIlayer {
+    .UIlayer {
         width: calc(100vw - 100vh/7);
     }
 }
 
 /* special check for tiny screens */
 @media screen and (max-width: 320px) {
-    #UIlayer {
+    .UIlayer {
         width: 70vw;
     }
 }
