@@ -1,7 +1,7 @@
 import { makeAutoObservable } from "mobx";
 
 export class GameStore {
-    sceneIndex: number = 0;
+    sceneIndex: number = 13;
     private isCanvasLoaded: boolean = false;
     
     constructor() {

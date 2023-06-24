@@ -3,7 +3,7 @@ import { render, screen, fireEvent, act } from '@testing-library/react';
 
 import GrammarContent from "../components/grammar-content/GrammarContent";
 import config  from "../common/config";
-import { RootStore } from '../store/RootStore';
+import { RootStore } from '../store/rootStore';
 import { RootStoreContext } from '../useGame';
 
 const rootStore = new RootStore();

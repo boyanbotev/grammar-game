@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 
-import { FightSceneStore } from "../store/FightSceneStore"; 
+import { FightSceneStore } from "../store/fightSceneStore"; 
 
 describe("GameStore", () => {
 

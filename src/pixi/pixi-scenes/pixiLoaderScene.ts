@@ -1,4 +1,4 @@
-import { Scene } from "./Scene";
+import { Scene } from "./scene";
 import { Container, Graphics, Assets } from "pixi.js";
 import { manifest } from "../../assets-loading/manifest";
 

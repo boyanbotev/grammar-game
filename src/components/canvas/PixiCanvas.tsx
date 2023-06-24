@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 
 import { PixiFightScene } from '../../pixi/pixi-scenes/pixiFightScene';
 import { CanvasSceneData, SceneType, } from '../../common/types';
-import { Scene } from '../../pixi/pixi-scenes/Scene';
+import { Scene } from '../../pixi/pixi-scenes/scene';
 import { PixiCanvasSceneManager } from '../../pixi/pixiCanvasSceneManager';
 import { PixiBaseScene } from '../../pixi/pixi-scenes/pixiBaseScene';
 import { useGame } from '../../useGame';

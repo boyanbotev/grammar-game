@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 
 import { CanvasProps } from '../components/canvas/PixiCanvas';
 import Game from '../components/scenes/game/Game';
-import { RootStore } from '../store/RootStore';
+import { RootStore } from '../store/rootStore';
 import { RootStoreContext, useGame } from '../useGame';
 
 const rootStore = new RootStore();
@@ -56,18 +56,18 @@ describe('Game', () => {
 
   it('renders mocked component with correct canvasData', () => {
     renderGameWithMockedCanvas();
-    expect(screen.getByText('fight')).toBeInTheDocument();
+    expect(screen.getByText('story')).toBeInTheDocument();
   });
 
-  // TESTS FIGHT SCENE INTEGRATION
-  it('renders question', () => {
+  // TESTS SCENE INTEGRATION
+  it('renders text content', () => {
     renderGameWithMockedCanvas();
-    expect(screen.getByTestId('question')).toBeInTheDocument();
+    expect(screen.getByTestId('text-content')).toBeInTheDocument();
   });
 
-  it('renders answer buttons', () => {
+  it('renders buttons', () => {
     renderGameWithMockedCanvas();
-    expect(screen.getAllByRole('button')).length.greaterThanOrEqual(2);
+    expect(screen.getAllByRole('button')).length.greaterThanOrEqual(1);
   });
 
   it('will not render question if Canvas is not loaded', () => {

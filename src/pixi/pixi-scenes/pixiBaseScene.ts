@@ -2,7 +2,7 @@ import { Assets, Container } from "pixi.js";
 import { gsap } from "gsap";
 
 import { Background } from "../pixi-components/background";
-import { Scene } from "./Scene";
+import { Scene } from "./scene";
 import { CanvasSceneData } from "../../common/types";
 import config from "../../common/config";
 
@@ -32,7 +32,6 @@ export class PixiBaseScene extends Container implements Scene {
     };
 
     private fadeIn(): void {
-        console.log("fadeIn");
         this.alpha = 0;
         gsap.to(this, { alpha: 1, duration: config.fadeTimeMillis/1000});
     }

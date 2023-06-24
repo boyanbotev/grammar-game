@@ -1,6 +1,6 @@
-import { FightSceneStore } from "./FightSceneStore";
-import { GameStore } from "./GameStore";
-import { StorySceneStore } from "./StorySceneStore";
+import { FightSceneStore } from "./fightSceneStore";
+import { GameStore } from "./gameStore";
+import { StorySceneStore } from "./storySceneStore";
 
 export class RootStore {
     gameStore: GameStore;

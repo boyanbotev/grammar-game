@@ -173,7 +173,111 @@ const scenesData: SceneData[] = [
             questionIDs: [4,5,6,7,8,9,10,]
         }
     },
-
+    {
+        
+        canvasData: {
+            sceneType: SceneType.story,
+            backGroundImageID: 13,
+        },
+        textData: {
+            storyText: [
+                "The boy won! But there were more soldiers.",
+                "Too many soldiers!",
+                "The boy ran and ran as fast as he could...",
+                "...to get away from all the soldiers.",
+            ]
+        }
+    },
+    {
+        
+        canvasData: {
+            sceneType: SceneType.story,
+            backGroundImageID: 14,
+        },
+        textData: {
+            storyText: [
+                "The boy was lucky!",
+                "An owl flew down and picked him up and saved him from the soldiers."
+            ]
+        }
+    },
+    {    
+        canvasData: {
+            sceneType: SceneType.story,
+            backGroundImageID: 15,
+        },
+        textData: {
+            storyText: [
+                "And the owl put him down and said...",
+                "'Twit twoo little one. How did you think you could fight all those soldiers?'",
+                "'You must learn the grammar of past tense. That way you can fight even a hundred soldiers.'",
+                "'What is past tense?' said the boy.",
+                "'Past tense is words like 'played' and 'jumped' and 'walked.' They talk about what happened before.'",
+            ]
+        }
+    },
+    {    
+        canvasData: {
+            sceneType: SceneType.story,
+            backGroundImageID: 16,
+        },
+        textData: {
+            storyText: [
+                "The owl showed him a magic book.",
+                "Inside it said...",
+                "'Some past tense words have '-ed.' Like 'walked' and 'jumped.'",
+                "Listen to this: ",
+                "'Yesterday I walked in the forest.'",
+                "'Before I jumped up and down.'",
+                "'Did you see? Some words have '-ed' in past tense.'"
+            ]
+        }
+    },
+    {    
+        canvasData: {
+            sceneType: SceneType.story,
+            backGroundImageID: 17,
+        },
+        textData: {
+            storyText: [
+                "The owl showed him a special stone.",
+                "It had writing on it.",
+                "The boy tried to read it, but he couldn't understand.",
+                "He looked for the owl, but the owl was gone.",
+                "'I wish someone could help me read this,' the boy said.",   
+            ]
+        }
+    },
+    {    
+        canvasData: {
+            sceneType: SceneType.story,
+            backGroundImageID: 18,
+        },
+        textData: {
+            storyText: [
+                "'I'll help you read it,' said a voice.",
+                "'Who's that?' said the boy.",
+                "It was a rabbit.",
+                "'What?' said the boy. 'Rabbits can't read!'",
+                "'I can,' said the rabbit.",
+                "'Really?' said the boy. 'What does it say?'",
+            ]
+        }
+    },
+    {    
+        canvasData: {
+            sceneType: SceneType.story,
+            backGroundImageID: 19,
+        },
+        textData: {
+            storyText: [
+                "'It's about the Romans,' the rabbit said.",
+                "'Who are the Romans?' asked the boy.",
+                "'They came over the sea in big ships,' said the rabbit.",
+                "'They came with fire and swords.'",
+            ]
+        }
+    },
 ]
 
 export default scenesData;

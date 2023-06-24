@@ -1,4 +1,4 @@
-import { Scene } from "./Scene";
+import { Scene } from "./scene";
 import { HeartContainer } from "../pixi-components/heartContainer";
 import { CanvasSceneData, SceneType } from "../../common/types";
 import { PixiBaseScene } from "./pixiBaseScene";

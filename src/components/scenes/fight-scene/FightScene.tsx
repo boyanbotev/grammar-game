@@ -12,6 +12,8 @@ type FightSceneProps = {
     setCanvasData: (data: CanvasSceneData) => void;
 }
 
+// TODO: FightScene State
+// Initializing, Playing, LoseScreen, WinScreen
 const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasData }) => {
     const { fightSceneStore, gameStore } = useGame();
     const playerHearts  = fightSceneStore.getPlayerHearts();
@@ -51,11 +53,13 @@ const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasD
     }
 
     const checkGameConditions = () => {
+        // TODO: Lose Screen
         if (playerHearts === 0 && isGameStarted) {
             resetScene();
             console.log("LOSE");
         }
 
+         // TODO: Win Screen
         if (enemyHearts === 0 && isGameStarted) {
             console.log("WIN");
             prepareToGoToNextScene();
@@ -71,7 +75,6 @@ const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasD
         gameStore.incrementSceneIndex();
     }
 
-    // TODO: Lose Screen
     const resetScene = () => {
         setInitialHeartValues();
         fightSceneStore.setQuestionIndex(0);

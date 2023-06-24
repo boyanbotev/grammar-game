@@ -1,6 +1,6 @@
 import { Application } from "pixi.js";
 
-import { Scene } from "./pixi-scenes/Scene";
+import { Scene } from "./pixi-scenes/scene";
 import { PixiLoaderScene } from "./pixi-scenes/pixiLoaderScene";
 import config from "../common/config";
 

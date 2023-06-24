@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from "vitest";
 import { render } from '@testing-library/react';
 
 import FightScene from "../components/scenes/fight-scene/FightScene";
-import { RootStore } from "../store/RootStore";
+import { RootStore } from "../store/rootStore";
 import { RootStoreContext } from "../useGame";
 import { FightSceneCanvasData, SceneType } from "../common/types";
 
