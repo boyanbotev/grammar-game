@@ -27,9 +27,7 @@ export const manifest: ResolverManifest = {
                 17: `${manifestBaseURL}tablet-writing.jpg`,
                 18: `${manifestBaseURL}rabbit.jpg`,
                 19: `${manifestBaseURL}roman-ships.jpg`,
-                20: `${manifestBaseURL}boy-and-rabbit-looking-up.jpg`,
-                21: `${manifestBaseURL}boy-and-rabbit-scared.jpg`,
-                22: `${manifestBaseURL}boy-and-rabbit-scared.jpg`,
+                20: `${manifestBaseURL}boy-and-rabbit-scared.jpg`,
             },
         },
         {

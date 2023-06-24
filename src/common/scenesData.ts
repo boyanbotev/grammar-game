@@ -40,7 +40,8 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "The boy hit the bear with his sword. And the bear said 'OWWW!' and ran away as fast as he could.",
+                "The boy hit the bear with his sword.",
+                "And the bear said 'OWWW!' and ran away as fast as he could."
             ]
         }
     },
@@ -76,7 +77,8 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "At last, the boy came to his home. But something was wrong! A red flag was in the ground.",
+                "At last, the boy came to his home. But something was wrong!",
+                "A red flag was in the ground."
             ]
         }
     },
@@ -113,7 +115,8 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "He came to a lake. But Mum and Dad were not there. He kept on walking.",
+                "He came to a lake. But Mum and Dad were not there.",
+                "He kept on walking."
             ]
         }
     },
@@ -125,7 +128,8 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "The boy walked on through the deep dark forest. Mum and Dad were not there. He kept on walking.",
+                "The boy walked on through the deep dark forest. Mum and Dad were not there.",
+                "He kept on walking."
             ]
         }
     },
@@ -226,9 +230,9 @@ const scenesData: SceneData[] = [
                 "The owl showed him a magic book.",
                 "Inside it said...",
                 "'Some past tense words have '-ed.' Like 'walked' and 'jumped.'",
-                "Listen to this: ",
+                "Listen to this... ",
                 "'Yesterday I walked in the forest.'",
-                "'Before I jumped up and down.'",
+                "'Before, I jumped up and down.'",
                 "'Did you see? Some words have '-ed' in past tense.'"
             ]
         }
@@ -275,6 +279,22 @@ const scenesData: SceneData[] = [
                 "'Who are the Romans?' asked the boy.",
                 "'They came over the sea in big ships,' said the rabbit.",
                 "'They came with fire and swords.'",
+                "'Are they the soldiers who broke my town?' said the boy.",
+                "'Yes,' said the rabbit.",
+                "'Where are my Mum and Dad?' the boy asked.",
+                "'I don't know,' the rabbit said. 'I think the Romans took them to Londinium.'",
+            ]
+        }
+    },
+    {    
+        canvasData: {
+            sceneType: SceneType.story,
+            backGroundImageID: 21,
+        },
+        textData: {
+            storyText: [
+                "'What?' said the boy. 'Londinium?'",
+                "'Yes,' said the rabbit. 'It's the Romans' biggest town.'"
             ]
         }
     },
