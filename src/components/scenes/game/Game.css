@@ -16,13 +16,6 @@
     /* default Portrait phone */
 }
 
-.image-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
 /* Landscape phone */
 @media screen and (min-width: 540px){
     .UIlayer {

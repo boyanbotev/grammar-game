@@ -3,7 +3,7 @@ import './Button.css';
 
 type ButtonProps = {
     children: React.ReactNode,
-    onClick?: (args?: any) => any // avoid any?,
+    onClick?: (args?: any) => any
     className?: string,
 }
 

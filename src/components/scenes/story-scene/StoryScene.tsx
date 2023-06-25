@@ -6,7 +6,7 @@ import { useGame } from '../../../useGame';
 import scenesData from '../../../common/scenesData';
 import TextContent from '../../grammar-content/text-content/TextContent';
 import Button from '../../grammar-content/button/Button';
-import ItemContainer from '../../grammar-content/grammar-item-container/ItemContainer';
+import ItemContainer from '../../grammar-content/item-container/ItemContainer';
 
 type StorySceneProps = {
     canvasData: CanvasSceneData;
@@ -50,5 +50,3 @@ const StoryScene: React.FC<StorySceneProps> = observer(({ }) => {
 });
 
 export default StoryScene;
-
-// TODO: changescene is not instigating scene with the right data

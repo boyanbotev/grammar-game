@@ -1,6 +1,7 @@
 import Button from "../../../grammar-content/button/Button";
-import ItemContainer from "../../../grammar-content/grammar-item-container/ItemContainer";
+import ItemContainer from "../../../grammar-content/item-container/ItemContainer";
 import TextContent from "../../../grammar-content/text-content/TextContent";
+import TransparentOverlay from "../transparent-overlay/TransparentOverlay";
 
 const manifestBaseURL = import.meta.env.BASE_URL;
 
@@ -11,6 +12,7 @@ type LoseScreenProps = {
 const LoseScreen: React.FC <LoseScreenProps>= ({ resetScene }) => {
     return (
         <>
+            <TransparentOverlay/>
             <img src={`${manifestBaseURL}lose-screen-1.jpg`}/>
             <ItemContainer>
                 <TextContent>YOU LOST!</TextContent>
@@ -23,5 +25,3 @@ const LoseScreen: React.FC <LoseScreenProps>= ({ resetScene }) => {
 }
 
 export default LoseScreen;
-
-// TODO: Retry Button?

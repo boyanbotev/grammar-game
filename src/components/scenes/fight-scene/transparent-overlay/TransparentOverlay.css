@@ -1,0 +1,8 @@
+.transparent-overlay{
+    position: absolute;
+    width: 300vw;
+    height: 300vh;
+    left: -100px;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -2;
+}

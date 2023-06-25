@@ -2,7 +2,7 @@ import { observer } from'mobx-react-lite';
 
 import './GrammarContent.css';
 import TextContent from './text-content/TextContent';
-import ItemContainer from './grammar-item-container/ItemContainer';
+import ItemContainer from './item-container/ItemContainer';
 import { questions } from '../../common/questions';
 import Answers from './answers/Answers';
 import { useGame } from '../../useGame';

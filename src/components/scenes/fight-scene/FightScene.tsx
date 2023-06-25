@@ -1,5 +1,5 @@
 import { observer } from 'mobx-react-lite';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import './FightScene.css';
 import { CanvasSceneData, FightSceneCanvasData, FightSceneState } from '../../../common/types';
@@ -15,8 +15,6 @@ type FightSceneProps = {
     setCanvasData: (data: CanvasSceneData) => void;
 }
 
-// TODO: FightScene State
-// Initializing, Playing, LoseScreen, WinScreen
 const FightScene: React.FC<FightSceneProps> = observer(({ canvasData, setCanvasData }) => {
     const { fightSceneStore, gameStore } = useGame();
     const playerHearts  = fightSceneStore.getPlayerHearts();
