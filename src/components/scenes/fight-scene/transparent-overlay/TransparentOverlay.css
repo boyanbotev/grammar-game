@@ -1,8 +1,37 @@
 .transparent-overlay{
     position: absolute;
-    width: 300vw;
+    width: 100vw;
     height: 300vh;
-    left: -100px;
+    left: -3.75vw;
     background-color: rgba(0, 0, 0, 0.3);
     z-index: -2;
+}
+
+
+/* Landscape phone */
+@media screen and (min-width: 540px){
+    .transparent-overlay {
+        left: calc(-100vh/2);
+    }
+}
+
+/* for iPad landscape*/
+@media screen and (min-height: 540px) and (min-width: 540px) {
+    .transparent-overlay {
+        left: calc((-100vh/2)/2);
+    }
+}
+
+/* iPad portrait */
+@media screen and (min-height: 1000px) and (min-width: 540px) {
+    .transparent-overlay {
+        left: calc((-100vh/7)/2);
+    }
+}
+
+/* special check for tiny screens */
+@media screen and (max-width: 320px) {
+    .transparent-overlay {
+        left: -15vw;
+    }
 }
