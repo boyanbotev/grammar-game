@@ -1,6 +1,6 @@
 import { Container } from "pixi.js";
 
-import { Vector2 } from "../../common/Vector2";
+import { Vector2 } from "../../common/vector2";
 import { Heart } from "./heart";
 import { HeartData } from "../../common/types";
 

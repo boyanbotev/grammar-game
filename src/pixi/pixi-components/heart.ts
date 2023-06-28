@@ -1,7 +1,7 @@
 import { Sprite, Assets } from "pixi.js";
 import gsap from 'gsap';
 
-import { Vector2 } from "../../common/Vector2";
+import { Vector2 } from "../../common/vector2";
 
 export class Heart extends Sprite {
     constructor(

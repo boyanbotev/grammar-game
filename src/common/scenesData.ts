@@ -40,8 +40,8 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "The boy hit the bear with his sword.",
-                "And the bear said 'OWWW!' and ran away as fast as he could."
+                "'OWWW!' said the bear.",
+                "And the bear ran away as fast as he could."
             ]
         }
     },
@@ -52,7 +52,8 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "So the boy walked on through the forest. He just wanted to get home.",
+                "So the boy walked on through the forest.", 
+                "He just wanted to get home.",
             ]
         }
     },
@@ -73,12 +74,25 @@ const scenesData: SceneData[] = [
         
         canvasData: {
             sceneType: SceneType.story,
+            backGroundImageID: 8,
+        },
+        textData: {
+            storyText: [
+                "He came to a lake.",
+                "The boy kept on walking. He just wanted to get home and see his Mum and Dad.",
+            ]
+        }
+    },
+    {
+        
+        canvasData: {
+            sceneType: SceneType.story,
             backGroundImageID: 5,
         },
         textData: {
             storyText: [
-                "At last, the boy came to his home. But something was wrong!",
-                "A red flag was in the ground."
+                "At last, the boy came to his home.", 
+                "But why was there a red flag in the ground?",
             ]
         }
     },
@@ -90,8 +104,9 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "He walked around the town. All the houses were broken. Where was Mum and Dad?",
-                "Everyone was gone."
+                "Why were all the houses broken?", 
+                "Where was Mum and Dad?",
+                "Where was everyone?"
             ]
         }
     },
@@ -103,20 +118,7 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "So he left his town and went looking for his Mum and Dad.",
-            ]
-        }
-    },
-    {
-        
-        canvasData: {
-            sceneType: SceneType.story,
-            backGroundImageID: 8,
-        },
-        textData: {
-            storyText: [
-                "He came to a lake. But Mum and Dad were not there.",
-                "He kept on walking."
+                "The boy left his town and went looking for his Mum and Dad.",
             ]
         }
     },
@@ -128,8 +130,7 @@ const scenesData: SceneData[] = [
         },
         textData: {
             storyText: [
-                "The boy walked on through the deep dark forest. Mum and Dad were not there.",
-                "He kept on walking."
+                "He walked and walked and walked.",
             ]
         }
     },
@@ -294,7 +295,8 @@ const scenesData: SceneData[] = [
         textData: {
             storyText: [
                 "'What?' said the boy. 'Londinium?'",
-                "'Yes,' said the rabbit. 'It's the Romans' biggest town.'"
+                "'Yes,' said the rabbit. 'It's the Romans' biggest town.'",
+                "END OF DEMO",
             ]
         }
     },
