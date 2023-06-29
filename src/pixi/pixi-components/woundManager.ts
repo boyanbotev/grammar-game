@@ -2,6 +2,7 @@ import { Container } from "pixi.js";
 import { CanvasSceneData, FightSceneCanvasData, SceneType } from "../../common/types";
 import { Vector2 } from "../../common/vector2";
 import { Wound } from "./wound";
+import config from "../../common/config";
 
 export class WoundManager {
     private playerHeartCount = 0;
@@ -34,13 +35,10 @@ export class WoundManager {
         if (!pos) {
             throw new Error("Invalid position: " + data.playerHearts);
         }
-
-        // How to make configurable?
-        const size = window.innerWidth / 2;
-
+        
         const midY = window.innerHeight / 2;
 
-        this.createWound(size, new Vector2(pos.x, midY));
+        this.createWound(config.enemyWoundSize, new Vector2(pos.x, midY));
     }
 
     private createPlayerWound(data: FightSceneCanvasData) {
@@ -49,10 +47,7 @@ export class WoundManager {
             throw new Error("Invalid position: " + data.playerHearts);
         }
 
-        // How to make configurable?
-        const size = window.innerWidth / 4;
-
-        this.createWound(size, new Vector2(pos.x, pos.y + 100));
+        this.createWound(config.playerWoundSize, new Vector2(pos.x, pos.y + 100));
     }
 
     createWound(size: number, position: Vector2): void {

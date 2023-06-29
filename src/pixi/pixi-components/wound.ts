@@ -33,7 +33,7 @@ export class Wound extends Sprite {
     private animate(): void {
         this.alpha = 0;
         const tl = gsap.timeline();
-        
+
         tl.to(this, {
             alpha: 1, 
             duration: config.woundAppearDuration
