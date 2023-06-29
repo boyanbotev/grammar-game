@@ -18,12 +18,10 @@ export class WoundManager {
         }
 
         if (data.playerHearts.number < this.playerHeartCount) {
-            console.log("create player wound");
             this.createPlayerWound(data);
         }
 
         if (data.opponentHearts.number < this.enemyHeartCount) {
-            console.log("create enemy wound");
             this.createEnemyWound(data);
         }
 
@@ -36,7 +34,13 @@ export class WoundManager {
         if (!pos) {
             throw new Error("Invalid position: " + data.playerHearts);
         }
-        this.createWound(window.innerWidth / 2, new Vector2(pos.x, window.innerHeight/2)); //was 1.4
+
+        // How to make configurable?
+        const size = window.innerWidth / 2;
+
+        const midY = window.innerHeight / 2;
+
+        this.createWound(size, new Vector2(pos.x, midY));
     }
 
     private createPlayerWound(data: FightSceneCanvasData) {
@@ -44,7 +48,11 @@ export class WoundManager {
         if (!pos) {
             throw new Error("Invalid position: " + data.playerHearts);
         }
-        this.createWound(window.innerWidth / 3, new Vector2(pos.x, pos.y + 100));
+
+        // How to make configurable?
+        const size = window.innerWidth / 4;
+
+        this.createWound(size, new Vector2(pos.x, pos.y + 100));
     }
 
     createWound(size: number, position: Vector2): void {

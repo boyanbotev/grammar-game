@@ -1,6 +1,7 @@
 import { Sprite, Assets } from "pixi.js";
 import { Vector2 } from "../../common/vector2";
 import { gsap } from "gsap";
+import config from "../../common/config";
 
 export class Wound extends Sprite {
     constructor(
@@ -18,11 +19,9 @@ export class Wound extends Sprite {
         this.x = position.x
         this.y = position.y
 
-        this.rotation = 1.5708;
+        this.rotation = degreesToRadians(90);
 
         this.asyncConstructor();
-        console.log("Wound");
-
         this.animate();
     }
 
@@ -34,11 +33,26 @@ export class Wound extends Sprite {
     private animate(): void {
         this.alpha = 0;
         const tl = gsap.timeline();
-        tl.to(this, {alpha: 1, duration: 0.04});
-        tl.to(this, {alpha: 0, width: this.width*2, height: this.height*2, duration: 1});
+        
+        tl.to(this, {
+            alpha: 1, 
+            duration: config.woundAppearDuration
+        });
+
+        tl.to(this, {
+            alpha: 0, 
+            width: this.width * config.woundScaleMultiplier, 
+            height: this.height * config.woundScaleMultiplier, 
+            duration: config.woundFadeDuration
+        });
 
         setTimeout(() => {
             this.destroy();
-        }, 3000);
+        }, config.woundDestroyTimeMillis);
     }
+}
+
+function degreesToRadians(degrees: number): number {
+  var pi = Math.PI;
+  return degrees * (pi/180);
 }
