@@ -2,10 +2,14 @@ import { Scene } from "./scene";
 import { HeartContainer } from "../pixi-components/heartContainer";
 import { CanvasSceneData, SceneType } from "../../common/types";
 import { PixiBaseScene } from "./pixiBaseScene";
+import { Wound } from "../pixi-components/wound";
+import { Vector2 } from "../../common/vector2";
+import { WoundManager } from "../pixi-components/woundManager";
 
 export class PixiFightScene extends PixiBaseScene implements Scene {
     private playerHeartContainer: HeartContainer;
     private enemyHeartContainer: HeartContainer;
+    private woundManager: WoundManager;
 
     constructor() {
         super();
@@ -14,6 +18,7 @@ export class PixiFightScene extends PixiBaseScene implements Scene {
 
         this.enemyHeartContainer = new HeartContainer(heartSize, this);
         this.playerHeartContainer = new HeartContainer(heartSize, this);
+        this.woundManager = new WoundManager(this);
     }
 
     async update(canvasSceneData: CanvasSceneData): Promise<void> {
@@ -26,5 +31,6 @@ export class PixiFightScene extends PixiBaseScene implements Scene {
 
         this.playerHeartContainer.update(canvasSceneData.playerHearts)
         this.enemyHeartContainer.update(canvasSceneData.opponentHearts);
+        this.woundManager.update(canvasSceneData);
     }
 }

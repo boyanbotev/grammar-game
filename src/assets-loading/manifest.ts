@@ -34,6 +34,7 @@ export const manifest: ResolverManifest = {
             name: "uiBundle",
             assets: {
                 "heart": `${manifestBaseURL}heart light.png`,
+                "wound": `${manifestBaseURL}wound4.png`,
             }
         }
     ]

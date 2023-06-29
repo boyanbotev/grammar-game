@@ -16,10 +16,23 @@
     /* default Portrait phone */
 }
 
+.transparent-overlay{
+    position: absolute;
+    width: 100vw;
+    height: 300vh;
+    left: -3.75vw;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: -2;
+}
+
 /* Landscape phone */
 @media screen and (min-width: 540px){
     .UIlayer {
         width: calc(100vw - 100vh);
+    }
+
+    .transparent-overlay {
+        left: calc(-100vh/2);
     }
 }
 
@@ -28,6 +41,10 @@
     .UIlayer {
         width: calc(100vw - 100vh/2);
     }
+
+    .transparent-overlay {
+        left: calc((-100vh/2)/2);
+    }
 }
 
 /* iPad portrait */
@@ -35,11 +52,19 @@
     .UIlayer {
         width: calc(100vw - 100vh/7);
     }
+
+    .transparent-overlay {
+        left: calc((-100vh/7)/2);
+    }
 }
 
 /* special check for tiny screens */
 @media screen and (max-width: 320px) {
     .UIlayer {
         width: 70vw;
+    }
+
+    .transparent-overlay {
+        left: -15vw;
     }
 }
