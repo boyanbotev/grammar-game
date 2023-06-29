@@ -2,8 +2,6 @@ import { Scene } from "./scene";
 import { HeartContainer } from "../pixi-components/heartContainer";
 import { CanvasSceneData, SceneType } from "../../common/types";
 import { PixiBaseScene } from "./pixiBaseScene";
-import { Wound } from "../pixi-components/wound";
-import { Vector2 } from "../../common/vector2";
 import { WoundManager } from "../pixi-components/woundManager";
 
 export class PixiFightScene extends PixiBaseScene implements Scene {

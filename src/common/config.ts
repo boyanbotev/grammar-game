@@ -4,7 +4,7 @@ const config = {
 
     woundAppearDuration: 0.04,
     woundFadeDuration: 1.8,
-    woundScaleMultiplier: 2,
+    woundScaleMultiplier: 0.6,
     woundDestroyTimeMillis: 3000,
 
     enemyWoundSize: window.innerWidth / 2,

@@ -25,7 +25,7 @@ export class Wound extends Sprite {
         this.animate();
     }
 
-    private async asyncConstructor(): Promise<void> {
+    async asyncConstructor(): Promise<void> {
         const uiBundle = await Assets.loadBundle("uiBundle");
         this.texture = uiBundle["wound"];
     }

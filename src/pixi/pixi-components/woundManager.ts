@@ -3,6 +3,7 @@ import { CanvasSceneData, FightSceneCanvasData, SceneType } from "../../common/t
 import { Vector2 } from "../../common/vector2";
 import { Wound } from "./wound";
 import config from "../../common/config";
+import { PlayerWound } from "./playerWound";
 
 export class WoundManager {
     private playerHeartCount = 0;
@@ -35,10 +36,12 @@ export class WoundManager {
         if (!pos) {
             throw new Error("Invalid position: " + data.playerHearts);
         }
-        
+
         const midY = window.innerHeight / 2;
 
-        this.createWound(config.enemyWoundSize, new Vector2(pos.x, midY));
+        //this.createWound(config.enemyWoundSize, new Vector2(pos.x, midY));
+        const wound = new Wound(config.enemyWoundSize, new Vector2(pos.x, midY));
+        this.parent.addChild(wound);
     }
 
     private createPlayerWound(data: FightSceneCanvasData) {
@@ -47,11 +50,14 @@ export class WoundManager {
             throw new Error("Invalid position: " + data.playerHearts);
         }
 
-        this.createWound(config.playerWoundSize, new Vector2(pos.x, pos.y + 100));
-    }
+        //this.createWound(config.playerWoundSize, new Vector2(pos.x, pos.y + 100));
 
-    createWound(size: number, position: Vector2): void {
-        const wound = new Wound(size, position);
+        const wound = new PlayerWound(config.playerWoundSize, new Vector2(pos.x, pos.y + 100));
         this.parent.addChild(wound);
     }
+
+    // createWound(size: number, position: Vector2): void {
+    //     const wound = new Wound(size, position);
+    //     this.parent.addChild(wound);
+    // }
 }
