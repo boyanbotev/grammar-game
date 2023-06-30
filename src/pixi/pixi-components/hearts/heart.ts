@@ -29,5 +29,7 @@ export class Heart extends Sprite {
         const tl = gsap.timeline();
         tl.to(this,{alpha: 0, duration: 0.1,});
         tl.to(this,{alpha: 1, duration: 0.1,});
+        tl.to(this,{width: this.width*1.2, height: this.height *1.2, duration: 0.1,});
+        tl.to(this,{width: this.width, height: this.height, duration: 0.7,});
     }
 }
