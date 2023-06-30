@@ -9,6 +9,8 @@ const config = {
 
     enemyWoundSize: window.innerWidth / 2,
     playerWoundSize: window.innerWidth / 4,
+
+    helperArrowAppearMillis: 10000,
 }
 
 export default config;

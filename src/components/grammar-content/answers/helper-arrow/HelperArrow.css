@@ -17,7 +17,7 @@
     width: 6em;
     height: 4em;
     position: absolute;
-    transform: translateY(-2em);
+
     animation-name: pulse;
     animation-duration: 1s;
     animation-iteration-count: infinite;
@@ -27,6 +27,5 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center; */
 }
 

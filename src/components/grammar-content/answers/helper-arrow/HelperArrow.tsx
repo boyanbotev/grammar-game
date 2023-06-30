@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import './HelperArrow.css';
+import config from "../../../../common/config";
 
 type HelperArrowProps = {
     children: React.ReactNode,
@@ -15,7 +16,7 @@ const HelperArrow: React.FC<HelperArrowProps> = ({ children }) => {
         setIsVisible(false);
         setTimeout(() => {
             setIsVisible(true);
-        },6000);
+        }, config.helperArrowAppearMillis);
     },[children]);
 
     return (
