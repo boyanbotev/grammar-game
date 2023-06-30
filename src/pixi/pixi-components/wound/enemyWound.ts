@@ -15,6 +15,6 @@ export class EnemyWound extends Wound {
         this.height = this.height * 1.6;
 
         const uiBundle = await Assets.loadBundle("uiBundle");
-        this.texture = uiBundle["wound"];
+        this.texture = uiBundle["wound-enemy"];
     }
 }

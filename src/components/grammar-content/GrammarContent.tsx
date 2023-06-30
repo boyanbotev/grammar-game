@@ -9,6 +9,7 @@ import { useGame } from '../../useGame';
 import scenesData from '../../common/scenesData';
 import { FightSceneTextData } from '../../common/types';
 import config from '../../common/config';
+import AnswersWithHelp from './answers/AnswersWithHelp';
 
 const GrammarContent: React.FC = observer(() => {
     const { fightSceneStore: fightScene, gameStore: game } = useGame();
@@ -38,6 +39,9 @@ const GrammarContent: React.FC = observer(() => {
         fightScene.setQuestionIndex(questionIndex + 1);
     };
 
+    // fragile implementation
+    const AnswersComponent = game.getSceneIndex() === 1 ? AnswersWithHelp : Answers;
+
     return (
         <>
             <ItemContainer>
@@ -46,7 +50,7 @@ const GrammarContent: React.FC = observer(() => {
                 </TextContent>
             </ItemContainer>
             <ItemContainer>
-                <Answers 
+                <AnswersComponent 
                     answers={question.answers}
                     handleCorrectAnswer={handleCorrectAnswer}
                     handleIncorrectAnswer={handleIncorrectAnswer}

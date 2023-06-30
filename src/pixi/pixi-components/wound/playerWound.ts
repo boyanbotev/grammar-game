@@ -13,6 +13,6 @@ export class PlayerWound extends Wound {
 
     async asyncConstructor(): Promise<void> {
         const uiBundle = await Assets.loadBundle("uiBundle");
-        this.texture = uiBundle["wound-fat"];
+        this.texture = uiBundle["wound-player"];
     }
 }
