@@ -1,9 +1,9 @@
 import { Container } from "pixi.js";
-import { CanvasSceneData, FightSceneCanvasData, SceneType } from "../../common/types";
-import { Vector2 } from "../../common/vector2";
-import { Wound } from "./wound";
-import config from "../../common/config";
+import { CanvasSceneData, FightSceneCanvasData, SceneType } from "../../../common/types";
+import { Vector2 } from "../../../common/vector2";
+import config from "../../../common/config";
 import { PlayerWound } from "./playerWound";
+import { EnemyWound } from "./enemyWound";
 
 export class WoundManager {
     private playerHeartCount = 0;
@@ -39,8 +39,7 @@ export class WoundManager {
 
         const midY = window.innerHeight / 2;
 
-        //this.createWound(config.enemyWoundSize, new Vector2(pos.x, midY));
-        const wound = new Wound(config.enemyWoundSize, new Vector2(pos.x, midY));
+        const wound = new EnemyWound(config.enemyWoundSize, new Vector2(pos.x, midY));
         this.parent.addChild(wound);
     }
 
@@ -50,14 +49,7 @@ export class WoundManager {
             throw new Error("Invalid position: " + data.playerHearts);
         }
 
-        //this.createWound(config.playerWoundSize, new Vector2(pos.x, pos.y + 100));
-
         const wound = new PlayerWound(config.playerWoundSize, new Vector2(pos.x, pos.y + 100));
         this.parent.addChild(wound);
     }
-
-    // createWound(size: number, position: Vector2): void {
-    //     const wound = new Wound(size, position);
-    //     this.parent.addChild(wound);
-    // }
 }

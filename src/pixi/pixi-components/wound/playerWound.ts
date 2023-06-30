@@ -1,7 +1,7 @@
 import { Assets } from 'pixi.js';
 
 import { Wound } from "./wound";
-import { Vector2 } from "../../common/vector2";
+import { Vector2 } from "../../../common/vector2";
 
 export class PlayerWound extends Wound {
     constructor(

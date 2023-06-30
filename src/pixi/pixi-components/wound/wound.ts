@@ -1,7 +1,7 @@
 import { Sprite, Assets } from "pixi.js";
-import { Vector2 } from "../../common/vector2";
+import { Vector2 } from "../../../common/vector2";
 import { gsap } from "gsap";
-import config from "../../common/config";
+import config from "../../../common/config";
 
 export class Wound extends Sprite {
     constructor(
@@ -12,7 +12,7 @@ export class Wound extends Sprite {
         super();
 
         this.width = size;
-        this.height = size * 1.6;
+        this.height = size;
 
         this.anchor.set(0.5);
 

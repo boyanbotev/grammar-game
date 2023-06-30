@@ -1,8 +1,8 @@
 import { Container } from "pixi.js";
 
-import { Vector2 } from "../../common/vector2";
+import { Vector2 } from "../../../common/vector2";
 import { Heart } from "./heart";
-import { HeartData } from "../../common/types";
+import { HeartData } from "../../../common/types";
 
 export class HeartContainer extends Container {
     private hearts: Heart[] = [];

@@ -1,8 +1,8 @@
 import { Scene } from "./scene";
-import { HeartContainer } from "../pixi-components/heartContainer";
+import { HeartContainer } from "../pixi-components/hearts/heartContainer";
 import { CanvasSceneData, SceneType } from "../../common/types";
 import { PixiBaseScene } from "./pixiBaseScene";
-import { WoundManager } from "../pixi-components/woundManager";
+import { WoundManager } from "../pixi-components/wound/woundManager";
 
 export class PixiFightScene extends PixiBaseScene implements Scene {
     private playerHeartContainer: HeartContainer;
