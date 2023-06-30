@@ -11,12 +11,20 @@ const manifestBaseURL = import.meta.env.BASE_URL;
 
 const HelperArrow: React.FC<HelperArrowProps> = ({ children }) => {
     const [isVisible, setIsVisible] = useState<boolean>(false);
+    const [currrentTimeout, setCurrrentTimeout] = useState<NodeJS.Timeout>();
 
     useEffect(() => {
         setIsVisible(false);
-        setTimeout(() => {
+        
+        if (currrentTimeout !== undefined) {
+            clearTimeout(currrentTimeout);
+        }
+
+        const timeout = setTimeout(() => {
             setIsVisible(true);
         }, config.helperArrowAppearMillis);
+
+        setCurrrentTimeout(timeout);
     },[children]);
 
     return (
